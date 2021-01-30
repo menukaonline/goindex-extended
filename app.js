@@ -5545,7 +5545,7 @@ function init() {
 		<div id="content" class="nexmoe-item"></div>
 	 	<div id="readme_md" class="mdui-typo nexmoe-item" style="display:none; padding: 20px 0;"></div>
   </div>
-  <div class="mdui-center mdui-text-center mdui-text-color-blue-grey-5001 dummyclass" style="margin-bottom: 20px">Made with <3</div>
+  <div class="mdui-center mdui-text-center mdui-text-color-blue-grey-5001 dummyclass" style="margin-bottom: 20px">Made with <3 ${UI.helpURL}</div>
 </div>
 	`;
   $("body").html(html);
