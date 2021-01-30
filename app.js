@@ -5524,7 +5524,7 @@ if (UI.hide_madewithlove) {
   );
 }
 
-if(UI.helpURL !== null && UI.helpURL !== '') {
+if(UI.helpURL === '') {
   document.write(
     "<style>.dummyclass2{display: none!important}</style>"
   );
