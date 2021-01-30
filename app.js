@@ -5519,11 +5519,15 @@ if (UI.dark_mode) {
 }
 
 if (UI.hide_madewithlove) {
-  $('.dummyclass').addClass('justhide');
+  document.write(
+    "<style>.dummyclass{display: none}</style>"
+  );
 }
 
 if(UI.helpURL !== null && UI.helpURL !== '') {
-  $('.dummyclass2').addClass('justhide');
+  document.write(
+    "<style>.dummyclass2{display: none}</style>"
+  );
 }
 
 function init() {
