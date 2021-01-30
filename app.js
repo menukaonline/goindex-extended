@@ -5520,13 +5520,13 @@ if (UI.dark_mode) {
 
 if (UI.hide_madewithlove) {
   document.write(
-    "<style>.dummyclass{display: none}</style>"
+    "<style>.dummyclass{display: none!important}</style>"
   );
 }
 
 if(UI.helpURL !== null && UI.helpURL !== '') {
   document.write(
-    "<style>.dummyclass2{display: none}</style>"
+    "<style>.dummyclass2{display: none!important}</style>"
   );
 }
 
