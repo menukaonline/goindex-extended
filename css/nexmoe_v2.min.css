@@ -1,0 +1,266 @@
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+/*导航*/
+.nexmoe-nav {
+    height: 56px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,.04);
+}
+.navSize{
+    position: relative;
+    height: 56px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+/* 头像 */
+.avatar{
+    position: absolute;
+    top: 4px;
+    left: 5%;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ebe8e8;
+    border-radius: 50%;
+    transition: 1.2s;
+}
+/* 头像动画 */
+.avatar:hover{
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+}
+.nav_menu{
+    position: absolute;
+    top: 16px;
+    right: 5%;
+}
+/* 导航 */
+.menu_ul{
+    display: none;
+    float: left;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 0 30px 0 0;
+    height: 30px;
+    width: auto;
+}
+.menu_li{
+    float: left;
+    list-style: none;
+    margin-left: 15px;
+    line-height: 30px;
+}
+.menu_li a{
+    font-size: 16px;
+    color: #7e7e7e;
+    transition: color 0.2s ease-out,border 0.2s ease-out,opacity 0.2s ease-out;
+    text-decoration: none;
+}
+.menu_li a:hover{
+    color: #1e89f2;
+}
+/* 定义动画 */
+@-webkit-keyframes fadeIn {
+0% {
+opacity: 0; /*初始状态 透明度为0*/
+}
+50% {
+opacity: 0; /*中间状态 透明度为0*/
+}
+100% {
+opacity: 1; /*结尾状态 透明度为1*/
+}
+}
+/* 伪类出现 */
+.nav_menu:hover ul{
+    display: inline;
+    -webkit-animation-name: fadeIn; /*动画名称*/
+    -webkit-animation-duration: 0.8s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    -webkit-animation-delay: 0s; /*延迟时间*/
+}
+/* 图标icon */
+.nav_icon{
+    float: left;
+    width: 26px;
+    height: 26px;
+    background: url(../images/icon_menu.png);
+    background-size:100% 100%;
+    transition: .6s;
+    cursor: pointer;
+}
+/* 图标动画icon */
+.nav_icon:hover{
+    background: url(../images/icon_close.png);
+    background-size:100% 100%;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+}
+
+.nexmoe-item {
+	margin: 20px -8px 0 !important;
+    padding: 15px !important;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0.2em 1em rgba(204, 204, 204, .3);
+    box-shadow: 0 0.2em 1em rgba(204, 204, 204, .3);
+    background-color: #fff;
+}
+
+/*路径导航*/
+.mdui-toolbar {
+	width: auto;
+	margin-top: 30px !important;
+}
+
+.mdui-typo-headline {
+	padding: 0;
+	font-size: 15px;
+    font-weight: normal;
+}
+
+.mdui-toolbar > a:last-child {
+	opacity: 1;
+    background-color: #1e89f2;
+    color: #ffff;
+}
+
+.mdui-toolbar > a {
+    padding: 0 16px;
+    line-height: 30px;
+    border-radius: 30px;
+    border: 2px solid;
+    border-color: #eee;
+}
+
+/* dropdown hide */
+.hidedropdown {
+    display: block;
+}
+
+/* bottom text */
+.astyle {
+    text-decoration: none;
+    color: #000000
+}
+
+.dummyclass {
+    display: block;
+}
+
+.dummyclass2 {
+    display: block;
+}
+
+.justhide {
+    display: none;
+}
+
+@media screen and (max-width: 980px) {
+	.mdui-toolbar > a:last-child, .mdui-toolbar > i:first-child {
+		display: block;
+	}
+
+	.mdui-toolbar > a , .mdui-toolbar > i{
+		display: none;
+	}
+
+
+	.mdui-list-item .mdui-text-right{
+		display:none
+    }
+
+}
+
+.mdui-toolbar > * {
+	/*opacity: .5;*/
+    margin: 0;
+}
+
+.mdui-select {
+    padding-right: 50px;
+    margin-right: 20px !important;
+}
+
+.mdui-select-selected {
+    right: 10px;
+}
+
+.mdui-select-menu {
+    -webkit-box-shadow: 0 0.2em 1em rgba(100, 100, 100, 0.2);
+    box-shadow: 0 0.2em 1em rgba(100, 100, 100, 0.2);
+}
+
+@media screen and (max-width: 767px) {
+	.mdui-select {
+        width: 85px;
+    }
+    
+
+    .hidedropdown {
+        display: none;
+    }
+
+}
+
+.mdui-textfield-expandable {
+    width: 36px;
+}
+
+.mdui-textfield-expandable .mdui-textfield-icon {
+    top: 4%;
+}
+
+.mdui-list {
+	padding: 0;
+}
+
+.mdui-list > .th {
+	border: none;
+}
+
+.mdui-list-item {
+    margin: 0 !important;
+    border-radius: 5px;
+    padding: 0 10px 0 5px !important;
+    border: 1px solid #eee;
+    margin-bottom: 10px !important;
+}
+
+.mdui-text-color-blue-grey-500 {
+    margin-top: 20px;
+    color: #000000 !important;
+}
+
+.mdui-text-color-blue-grey-5001 {
+    margin-top: 20px;
+    color: rgba(0, 0, 0, 0.7)!important;
+}
+
+.mdui-typo {
+    padding: 10px 30px !important;
+}
+
+.mdui-overlay {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.mdui-dialog {
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0.2em 1em rgba(50, 50, 50, 0.8);
+    box-shadow: 0 0.2em 1em rgba(50, 50, 50, 0.8);
+}
+
+.nav-style > a:hover {
+    background-color: #1e89f2;
+    color: #ffff;
+}
