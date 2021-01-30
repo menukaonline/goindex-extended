@@ -2,9 +2,9 @@ const authConfig = {
   "siteName": "GDIndex", 
   "siteIcon": "https://raw.githubusercontent.com/cheems/GDIndex/master/images/favicon.png",
   "version": "4.28",
-  "client_id": "",
-  "client_secret": "",
-  "refresh_token": "", // Authorization token
+  "client_id": "", // Client ID
+  "client_secret": "", // Client Secret
+  "refresh_token": "", // Refresh Token
 /**
  * Set up multiple Drives to be displayed; add multiples by format
  * [id]: It can be team folder id, subfolder id, or "root" (representing the root directory of personal disk);
@@ -101,7 +101,7 @@ function html(current_drive_order = 0, model = {}) {
     window.current_drive_order = ${current_drive_order};
     window.UI = JSON.parse('${JSON.stringify(uiConfig)}');
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/cheems/GDIndex@master/app.js"></script>
+  <script src="https://rawcdn.githack.com/cheems/GDIndex/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/app.js"></script>
 </head>
 <body>
 </body>

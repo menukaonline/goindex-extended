@@ -5481,33 +5481,33 @@
 
 if (UI.dark_mode) {
   document.write(
-    '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/GDIndex/153e36ee4038170ad1d33392699dd5e13b52087a/css/mdui_v2_dark.min.css">'
+    '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/GDIndex/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/css/mdui_v2_dark.min.css">'
   );
 } else {
   document.write(
-    '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/GDIndex/a6e6a2c952d187001bfda5571997e65e45dc8b22/css/mdui_v2.min.css">'
+    '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/GDIndex/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/css/mdui_v2.min.css">'
   );
 }
 if (UI.dark_mode) {
   document.write(
-    '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/GDIndex/f593c356e284fd39c4fb8647b20e9cabdd00b1b2/css/nexmoe_v2_dark.min.css">'
+    '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/GDIndex/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/css/nexmoe_v2_dark.min.css">'
   );
 } else {
   document.write(
-    '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/GDIndex/f593c356e284fd39c4fb8647b20e9cabdd00b1b2/css/nexmoe_v2.min.css">'
+    '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/GDIndex/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/css/nexmoe_v2.min.css">'
   );
 }
 document.write(
-  '<script src="//cdn.jsdelivr.net/gh/cheems/GDIndex@1.0.0/js/mdui.min.js"></script>'
+  '<script src="//rawcdn.githack.com/cheems/GDIndex/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/js/mdui.min.js"></script>'
 );
 document.write(
-  '<script src="//cdn.jsdelivr.net/gh/cheems/GDIndex@1.0.0/js/flv.min.js"></script>'
+  '<script src="//rawcdn.githack.com/cheems/GDIndex/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/js/flv.min.js"></script>'
 );
 document.write(
-  '<script src="//cdn.jsdelivr.net/gh/cheems/GDIndex@1.0.0/js/DPlayer.min.js"></script>'
+  '<script src="//rawcdn.githack.com/cheems/GDIndex/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/js/DPlayer.min.js"></script>'
 );
 document.write(
-  '<script src="//cdn.jsdelivr.net/gh/cheems/GDIndex@1.0.0/js/markdown-it.min.js"></script>'
+  '<script src="//rawcdn.githack.com/cheems/GDIndex/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/js/markdown-it.min.js"></script>'
 );
 document.write(
   "<style>.mdui-appbar .mdui-toolbar{height:56px;font-size:1pc}.mdui-toolbar>i{opacity:.5}.mdui-toolbar>i{padding:0}.mdui-toolbar>a:hover,a.active,a.mdui-typo-headline{opacity:1}.mdui-container{max-width:980px}.mdui-list-item{transition:none}.mdui-list>.th{background-color:initial}.mdui-list-item>a{width:100%;line-height:3pc}.mdui-list-item{margin:2px 0;padding:0}.mdui-toolbar>a:last-child{opacity:1}@media screen and (max-width:980px){.mdui-list-item .mdui-text-right{display:none}.mdui-container{width:100%!important;margin:0}}</style>"
