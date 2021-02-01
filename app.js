@@ -5532,6 +5532,13 @@ if(UI.helpURL === '') {
 
 $(document).ready(function() {
   var locurl = window.location.href;
+  if (locurl.includes('search?q=')) {
+    $('.mdui-select').addClass('hidedropdown');
+ }
+});  
+
+$(document).ready(function() {
+  var locurl = window.location.href;
   if('search?q='.test(locurl)) {
     $('.mdui-select').addClass('hidedropdown');
   }
