@@ -22,8 +22,9 @@ const authConfig = {
     {
       id: "root", //you can use folderid other than root but then search wont work
       name: "Personal Drive",
-      //user: 'username',
+      //user: 'username', //uncomment to use userpass auth
       //pass: "password",
+      //protect_file_link: true //or false
     }//remove /** and **/ to uncomment
     /** 
     {
@@ -31,6 +32,7 @@ const authConfig = {
         name: "Personal Drive II",
         user: 'username',
         pass: "password",
+        protect_file_link: true //or false
       }  **/
   ],
 
