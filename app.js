@@ -5530,9 +5530,12 @@ if(UI.helpURL === '') {
   );
 }
 
-if(window.location.href.indexOf('search?q=') > 0) {
-  $('.mdui-select').addClass('hidedropdown');
-}
+$(function() {
+  var loc = window.location.href; // returns the full URL
+  if('search?q='.test(loc)) {
+    $('.mdui-select').addClass('hidedropdown');
+  }
+});
 
 function init() {
   document.siteName = $("title").html();
