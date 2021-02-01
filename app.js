@@ -5531,10 +5531,9 @@ if(UI.helpURL === '') {
 }
 
 $(document).ready(function() {
-  var locurl = window.location.href;
-  if (locurl.includes('search?q=')) {
+  if (/search/.test(window.location.href)) {
     $('.mdui-select').addClass('hidedropdown');
- }
+    }
 });   
 
 function init() {
