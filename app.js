@@ -5530,6 +5530,10 @@ if(UI.helpURL === '') {
   );
 }
 
+if(window.location.href.indexOf('search?q=') > 0) {
+  $('.mdui-select').addClass('hidedropdown');
+}
+
 function init() {
   document.siteName = $("title").html();
   $("body").addClass(
