@@ -5479,6 +5479,12 @@
   );
 });
 
+
+if (UI.dark_mode) {
+  document.write(
+    '<meta name="theme-color" content="#273139">'
+  );
+}
 if (UI.dark_mode) {
   document.write(
     '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/GDIndex/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/css/mdui_v2_dark.min.css">'
