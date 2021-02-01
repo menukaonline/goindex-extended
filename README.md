@@ -24,6 +24,6 @@ This theme's goindex is currently based on [yanzai/goindex](https://github.com/y
 	  -   red | pink | purple | deep-purple | indigo | blue | light-blue | cyan | teal | green | light-green | lime | yellow | amber | orange | deep-orange
 
 ##  Credits
-[yanzai](https://github.com/yanzai/goindex)
-[sawankumar](https://github.com/sawankumar)
-[5MayRain](https://github.com/5MayRain)
+ - [yanzai](https://github.com/yanzai/goindex)
+ - [sawankumar](https://github.com/sawankumar)
+ - [5MayRain](https://github.com/5MayRain)
