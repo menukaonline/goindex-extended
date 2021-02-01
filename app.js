@@ -5530,11 +5530,9 @@ if(UI.helpURL === '') {
   );
 }
 
-
-var locurl = window.location.href; // returns the full URL
-if('search?q='.test(locurl)) {
-  $('.mdui-select').addClass('hidedropdown');
-}
+document.write(
+  "<script>var locurl = window.location.href; if('search?q='.test(locurl)) {$('.mdui-select').addClass('hidedropdown');}</script>"
+);
 
 function init() {
   document.siteName = $("title").html();
