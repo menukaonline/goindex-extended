@@ -5530,11 +5530,9 @@ if(UI.helpURL === '') {
   );
 }
 
-$(document).ready(function() {
-  if (/search/.test(window.location.href)) {
-    $('.mdui-select').addClass('hidedropdown');
-    }
-});   
+document.write(
+  "<script>if (/search/.test(window.location.href)) {$('.mdui-select').addClass('hidedropdown');}</script>"
+);
 
 function init() {
   document.siteName = $("title").html();
