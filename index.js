@@ -24,7 +24,8 @@ const authConfig = {
       name: "Personal Drive",
       //user: 'username',
       //pass: "password",
-    }/**,
+    }//remove /** and **/ to uncomment
+    /** 
     {
         id: "drive_id",
         name: "Personal Drive II",
