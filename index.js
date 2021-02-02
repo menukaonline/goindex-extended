@@ -1,44 +1,61 @@
 const authConfig = {
-  "siteName": "GDIndex", 
+  "siteName": "GDIndex", // WebSite Name
   "siteIcon": "https://raw.githubusercontent.com/cheems/GDIndex/master/images/favicon.png",
-  "version": "4.28",
+  "version": "4.28", // VersionControl, do not modify manually
+// client_id & client_secret - PLEASE USE YOUR OWN!
   "client_id": "", // Client ID
   "client_secret": "", // Client Secret
   "refresh_token": "", // Refresh Token
 /**
- * Set up multiple Drives to be displayed; add multiples by format
- * [id]: It can be team folder id, subfolder id, or "root" (representing the root directory of personal disk);
- * [name]: the displayed name
- * [user]: Basic Auth username
- * [pass]: Basic Auth password
- * [protect_file_link]: Whether Basic Auth is used to protect the file link, the default value (when not set) is false, that is, the file link is not protected (convenient for straight chain download / external playback, etc.)
- * Basic Auth of each folder can be set separately. Basic Auth protects all folders / subfolders in the disk by default
- * [Note] By default, the file link is not protected, which can facilitate straight-chain download / external playback;
- * If you want to protect the file link, you need to set protect_file_link to true. At this time, if you want to perform external playback and other operations, you need to replace host with user: pass @ host
- * No need for Basic Auth folder, just keep user and pass empty at the same time. (No need to set it directly)
- * [Note] For the folder whose id is set to the subfolder id, the search function will not be supported (it does not affect other disks).
- **/
+  * Set up multiple Drives to be displayed; add multiples by format
+  * [id]: It can be team folder id, subfolder id, or "root" (representing the root directory of personal disk);
+  * [name]: the displayed name
+  * [user]: Basic Auth username
+  * [pass]: Basic Auth password
+  * [protect_file_link]: Whether Basic Auth is used to protect the file link, the default value (when not set) is false, that is, the file link is not protected (convenient for straight chain download / external playback, etc.)
+  * Basic Auth of each folder can be set separately. Basic Auth protects all folders / subfolders in the disk by default
+  * [Note] By default, the file link is not protected, which can facilitate straight-chain download / external playback;
+  * If you want to protect the file link, you need to set protect_file_link to true. At this time, if you want to perform external playback and other operations, you need to replace host with user: pass @ host
+  * No need for Basic Auth folder, just keep user and pass empty at the same time. (No need to set it directly)
+  * [Note] For the folder whose id is set to the subfolder id, the search function will not be supported (it does not affect other disks).
+  */
   "roots": [
     {
       id: "root", //you can use folderid other than root but then search wont work
       name: "Personal Drive",
-      //user: 'username', //uncomment to use userpass auth
-      //pass: "password",
-      //protect_file_link: true //or false
-    }//remove /** and **/ to uncomment
-    /** 
+      user: 'username',
+      pass: 'password',
+      protect_file_link: false //true or false
+    },
     {
         id: "drive_id",
         name: "Personal Drive II",
         user: 'username',
-        pass: "password",
-        protect_file_link: true //or false
-      }  **/
+        pass: 'password',
+        protect_file_link: false
+      }
   ],
-
+/**
+  * The number displayed on each page of the file list page. [Recommended setting value is between 100 and 1000];
+  * If the setting is greater than 1000, it will cause an error when requesting drive api;
+  * If the set value is too small, the incremental loading (page loading) of the scroll bar of the file list page will be invalid
+  * Another effect of this value is that if the number of files in the directory is greater than this setting (that is, multiple pages need to be displayed), the results of the first listing directory will be cached.
+  */
   "files_list_page_size": 500,
+/**
+  * The number displayed on each page of the search results page. [Recommended setting value is between 50 and 1000];
+  * If the setting is greater than 1000, it will cause an error when requesting drive api;
+  * If the set value is too small, it will cause the incremental loading (page loading) of the scroll bar of the search results page to fail;
+  * The size of this value affects the response speed of the search operation
+  */
   "search_result_list_page_size": 50,
+// Confirm that cors can be opened
   "enable_cors_file_down": false,
+/**
+  * The above basic auth already contains the function of global protection in the disk. So by default, the password in the .password file is no longer authenticated;
+  * If you still need to verify the password in the .password file for certain directories based on global authentication, set this option to true;
+  * [Note] If the password verification of the .password file is enabled, the overhead of querying whether the .password file in the directory will be added each time the directory is listed.
+  */
   "enable_password_file_verify": false
 };
 
@@ -50,10 +67,9 @@ const uiConfig = {
   "dark_mode": true,
   "hide_madewithlove": false, // Set this to true if you want to hide made-with-love text at the bottom of the page
   "helpURL": "", // Provide the URL of the help page(instructions for using the index). Leave this empty if you want to hide the help icon. Providing a URL will open the help page in a new tab
-  "main_color": "blue-grey",
-  "accent_color": "blue",
-  "fluid_navigation_bar": true,
-  "disable_navicon": true
+  "main_color": "blue-grey", // red | pink | purple | deep-purple | indigo | blue | light-blue | cyan | teal | green | light-green | lime | yellow | amber | orange | deep-orange | brown | greyblue-grey
+  "accent_color": "blue" // red | pink | purple | deep-purple | indigo | blue | light-blue | cyan | teal | green | light-green | lime | yellow | amber | orange | deep-orange
+// blue-grey and blue suit with both light and dark themes
 };
 
 /**
