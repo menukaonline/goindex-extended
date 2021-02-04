@@ -5520,7 +5520,7 @@ document.write(
 );
 if (UI.dark_mode) {
   document.write(
-    "<style>* {box-sizing: border-box}body{color:rgba(255,255,255,.87);background-color:#1E252F}.mdui-theme-primary-${UI.main_color} .mdui-color-theme{background-color:#1E252F!important} .nexmoe-item{background-color: #ffffff0d!important;box-shadow:0 0.2em 1em rgb(0 0 0 / 30%)!important} .mdui-list-item{border: 1px solid rgb(255 255 255 / 10%)!important} .mdui-select-menu{box-shadow: 0 0.2em 1em rgba(100, 100, 100, 0.2)!important} .mdui-text-color-blue-grey-500{color: #e3e4e5 !important}</style>"
+    "<style>* {box-sizing: border-box}body{color:rgba(255,255,255,.87);background-color:#1E252F}.mdui-theme-primary-${UI.main_color} .mdui-color-theme{background-color:#1E252F!important} .nexmoe-item{background-color: #ffffff0d!important;box-shadow:0 0.2em 1em rgb(0 0 0 / 30%)!important} .mdui-list-item{border: 1px solid rgb(255 255 255 / 10%)!important} .mdui-select-menu{box-shadow: 0 0.2em 1em rgba(100, 100, 100, 0.2)!important} .mdui-text-color-blue-grey-500{color: #e3e4e5 !important} .mdui-textfield-label{color: rgba(255, 255, 255, .54)!important}</style>"
   );
 }
 
