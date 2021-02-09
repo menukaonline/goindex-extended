@@ -1,11 +1,11 @@
 const authConfig = {
-  "siteName": "GDIndex", // WebSite Name
+  "siteName": "{cheems_site_name}", // WebSite Name
   "siteIcon": "https://raw.githubusercontent.com/cheems/GDIndex/master/images/favicon.png",
   "version": "4.28", // VersionControl, do not modify manually
 // client_id & client_secret - PLEASE USE YOUR OWN!
-  "client_id": "", // Client ID
-  "client_secret": "", // Client Secret
-  "refresh_token": "", // Refresh Token
+  "client_id": "{cheems_client_id}", // Client ID
+  "client_secret": "{cheems_client_secret}", // Client Secret
+  "refresh_token": "{cheems_refresh_token}", // Refresh Token
 /**
   * Set up multiple Drives to be displayed; add multiples by format
   * [id]: It can be team folder id, subfolder id, or "root" (representing the root directory of personal disk);
@@ -21,19 +21,19 @@ const authConfig = {
   */
   "roots": [
     {
-      id: "root", //you can use folderid other than root but then search wont work
-      name: "Personal Drive",
-      user: 'username',
-      pass: 'password',
+      id: "{cheems_drive_id}", //you can use folderid other than root but then search wont work
+      name: "{cheems_drive_name}",
+      user: '{cheems_username}',
+      pass: '{cheems_password}',
       protect_file_link: false //true or false
-    },
+    } /* ,
     {
         id: "drive_id",
         name: "Personal Drive II",
         user: 'username',
         pass: 'password',
         protect_file_link: false
-      }
+      } */
   ],
 /**
   * The number displayed on each page of the file list page. [Recommended setting value is between 100 and 1000];
@@ -64,11 +64,11 @@ const authConfig = {
  */
 const uiConfig = {
   "theme": "material", // DO NOT set it to classic
-  "dark_mode": true, //true or false
-  "hide_madewithlove": false, // Set this to true if you want to hide made-with-love text at the bottom of the page
-  "helpURL": "", // Provide the URL of the help page(instructions for using the index). Leave this empty if you want to hide the help icon. Providing a URL will open the help page in a new tab. (You can use telegra.ph to write instructions)
-  "main_color": "blue-grey", // blue-grey | red | pink | purple | deep-purple | indigo | blue | light-blue | cyan | teal | green | light-green | lime | yellow | amber | orange | deep-orange | brown | grey
-  "accent_color": "blue" // red | pink | purple | deep-purple | indigo | blue | light-blue | cyan | teal | green | light-green | lime | yellow | amber | orange | deep-orange
+  "dark_mode": {cheems_theme}, //true or false
+  "hide_madewithlove": {cheems_hide_madewithlove}, // Set this to true if you want to hide made-with-love text at the bottom of the page
+  "helpURL": "{cheems_help_url}", // Provide the URL of the help page(instructions for using the index). Leave this empty if you want to hide the help icon. Providing a URL will open the help page in a new tab. (You can use telegra.ph to write instructions)
+  "main_color": "{cheems_main_color}", // blue-grey | red | pink | purple | deep-purple | indigo | blue | light-blue | cyan | teal | green | light-green | lime | yellow | amber | orange | deep-orange | brown | grey
+  "accent_color": "{cheems_accent_color}" // red | pink | purple | deep-purple | indigo | blue | light-blue | cyan | teal | green | light-green | lime | yellow | amber | orange | deep-orange
 // blue-grey and blue suit with both light and dark themes
 };
 
