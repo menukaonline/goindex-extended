@@ -34,7 +34,7 @@ This theme's goindex is currently based on [yanzai/goindex](https://github.com/y
 ## Deployment
 
 1. Open https://console.cloud.google.com/marketplace/product/google/drive.googleapis.com
-2. Create a new project or use one of the existing projects if you already have created. (If you are using Google Cloud Platform for the 1st time: do this only if you want to give your project a custom name. otherwise, your project will be automatically created after the next step with the name "My First Project". If you don't aware of the name like me then just skip this step)
+2. Create a new project or use one of the existing projects if you already have created. (If you are using Google Cloud Platform for the 1st time: do this only if you want to give your project a custom name. otherwise, your project will be automatically created after the next step with the name "My First Project". If you don't care about the name of the project like me then just skip this step)
 3. Click Enable button to enable Google Drive API
 4. Click Create Credentials
 5. Select "Google Drive API" from the 1st dropdown and select "Other UI" from the 2nd dropdown
