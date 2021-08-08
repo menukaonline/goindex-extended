@@ -5780,7 +5780,7 @@ function append_files_to_list(path, files) {
   let targetFiles = [];
   for (i in files) {
     var item = files[i];
-    var p = path + encodeURIComponent(item.name) + "/";		// Adding folder name to url
+    var p = path + encodeURIComponent(item.name) + "/";		// Adding folder name to url 
     if (item.size == undefined) {
       item.size = "";
     }
