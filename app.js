@@ -5797,7 +5797,7 @@ function append_files_to_list(path, files) {
 	            </a>
 	        </li>`;
     } else {
-      var p = path + item.name;
+      var p = path + encodeURIComponent(item.name);
       const filepath = path + item.name;
       var c = "file";
       if (is_lastpage_loaded && item.name == "README.md") {
