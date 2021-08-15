@@ -5780,7 +5780,7 @@ function append_files_to_list(path, files) {
   let targetFiles = [];
   for (i in files) {
     var item = files[i];
-    var p = path + encodeURIComponent(item.name) + "/";		// Adding folder name to url 
+    var p = path + encodeURIComponent(encodeURIComponent(item.name)) + "/";		// Adding folder name to url 
     if (item.size == undefined) {
       item.size = "";
     }
@@ -5797,7 +5797,7 @@ function append_files_to_list(path, files) {
 	            </a>
 	        </li>`;
     } else {
-      var p = path + encodeURIComponent(item.name);	// Adding file name to url
+      var p = path + encodeURIComponent(encodeURIComponent(item.name));	// Adding file name to url
       const filepath = path + item.name;
       var c = "file";
       if (is_lastpage_loaded && item.name == "README.md") {
