@@ -65,7 +65,7 @@ const authConfig = {
 const uiConfig = {
   "theme": "material", // DO NOT set it to classic
   "dark_mode": true, //true or false
-  "hide_madewithlove": false, // Set this to true if you want to hide made-with-love text at the bottom of the page
+  "footer_text": "Made with <3", // Set this to true if you want to hide made-with-love text at the bottom of the page
   "helpURL": "", // Provide the URL of the help page(instructions for using the index). Leave this empty if you want to hide the help icon. Providing a URL will open the help page in a new tab. (You can use telegra.ph to write instructions)
   "main_color": "blue-grey", // blue-grey | red | pink | purple | deep-purple | indigo | blue | light-blue | cyan | teal | green | light-green | lime | yellow | amber | orange | deep-orange | brown | grey
   "accent_color": "blue" // red | pink | purple | deep-purple | indigo | blue | light-blue | cyan | teal | green | light-green | lime | yellow | amber | orange | deep-orange

@@ -5524,7 +5524,7 @@ if (UI.dark_mode) {
   );
 }
 
-if (UI.hide_madewithlove) {
+if (UI.footer_text === '') {
   document.write(
     "<style>.dummyclass{display: none!important}</style>"
   );
@@ -5551,7 +5551,7 @@ function init() {
 		<div id="content" class="nexmoe-item"></div>
 	 	<div id="readme_md" class="mdui-typo nexmoe-item" style="display:none; padding: 20px 0;"></div>
   </div>
-  <div class="mdui-center mdui-text-center mdui-text-color-blue-grey-5001 dummyclass" style="margin-bottom: 20px">Made with <3</div>
+  <div class="mdui-center mdui-text-center mdui-text-color-blue-grey-5001 dummyclass" style="margin-bottom: 20px">${UI.footer_text}</div>
 </div>
 	`;
   $("body").html(html);
