@@ -5524,7 +5524,7 @@ if (UI.dark_mode) {
   );
 }
 
-if (UI.footer_text === '') {
+if (UI.hide_actions_tab) {
   document.write(
     "<style>.dummyclass{display: none!important}</style>"
   );
@@ -5551,7 +5551,7 @@ function init() {
 		<div id="content" class="nexmoe-item"></div>
 	 	<div id="readme_md" class="mdui-typo nexmoe-item" style="display:none; padding: 20px 0;"></div>
   </div>
-  <div class="mdui-center mdui-text-center mdui-text-color-blue-grey-5001 dummyclass" style="margin-bottom: 20px">${UI.footer_text}</div>
+  <div class="mdui-center mdui-text-center mdui-text-color-blue-grey-5001" style="margin-bottom: 20px">${UI.footer_text}</div>
 </div>
 	`;
   $("body").html(html);
@@ -5690,7 +5690,11 @@ function list(path) {
 	    <div class="mdui-col-sm-2 mdui-text-right">
 	     Size
 	<i class="mdui-icon material-icons icon-sort" data-sort="size" data-order="downward">expand_more</i>
-	    </div> 
+	    </div>
+      <div class="mdui-col-sm-2 mdui-text-right">
+    Actions
+  <i class="mdui-icon material-icons icon-sort dummyclass" data-sort="size" data-order="downward">expand_more</i>
+    </div>  
 	    </li> 
 	  </ul> 
 	 </div> 
@@ -5795,6 +5799,14 @@ function append_files_to_list(path, files) {
 	            <div class="mdui-col-sm-3 mdui-text-right">${item["modifiedTime"]}</div>
 	            <div class="mdui-col-sm-2 mdui-text-right">${item["size"]}</div>
 	            </a>
+              <div class="mdui-col-sm-2 mdui-text-right dummyclass">
+	              <button onclick="window.open('${p}','_blank')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
+                  <i class="mdui-icon material-icons dummyclass">launch</i>
+                </button>
+                <button onclick="(function setClipboard(value) {var tempInput = document.createElement('input');tempInput.style = 'position: absolute; left: -1000px; top: -1000px';tempInput.value = value;document.body.appendChild(tempInput);tempInput.select();document.execCommand('copy');document.body.removeChild(tempInput);})('${p}')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
+                  <i class="mdui-icon material-icons dummyclass">content_copy</i>
+                </button>
+              </div>
 	        </li>`;
     } else {
       var p = path + encodeURIComponent(item.name).replace("%5C", "%5C%5C");	// Adding file name to url
@@ -5817,6 +5829,7 @@ function append_files_to_list(path, files) {
         ) >= 0
       ) {
         targetFiles.push(filepath);
+        var ddl_link = p;
         p += "?a=view";
         c += " view";
       }
@@ -5828,6 +5841,17 @@ function append_files_to_list(path, files) {
 	          <div class="mdui-col-sm-3 mdui-text-right">${item["modifiedTime"]}</div>
 	          <div class="mdui-col-sm-2 mdui-text-right">${item["size"]}</div>
 	          </a>
+            <div class="mdui-col-sm-2 mdui-text-right dummyclass">
+	            <button onclick="window.open('${ddl_link}','_self')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
+                <i class="mdui-icon material-icons dummyclass">file_download</i>
+              </button>
+              <button onclick="window.open('${p}','_blank')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
+                <i class="mdui-icon material-icons dummyclass">launch</i>
+              </button>
+              <button onclick="(function setClipboard(value) {var tempInput = document.createElement('input');tempInput.style = 'position: absolute; left: -1000px; top: -1000px';tempInput.value = value;document.body.appendChild(tempInput);tempInput.select();document.execCommand('${ddl_link}');document.body.removeChild(tempInput);})('test')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
+                <i class="mdui-icon material-icons dummyclass">content_copy</i>
+              </button>
+            </div>
 	      </li>`;
     }
   }
