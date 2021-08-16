@@ -5784,7 +5784,7 @@ function append_files_to_list(path, files) {
   let targetFiles = [];
   for (i in files) {
     var item = files[i];
-    var p = path + encodeURIComponent(item.name).replace("%5C", "%5C%5C").replace(/[!'()*]/g, escape) + "/";		// Adding folder name to url 
+    var p = path + encodeURIComponent(item.name).replaceAll("%5C", "%5C%5C").replace(/[!'()*]/g, escape) + "/";		// Adding folder name to url 
     if (item.size == undefined) {
       item.size = "";
     }
@@ -5809,7 +5809,7 @@ function append_files_to_list(path, files) {
               </div>
 	        </li>`;
     } else {
-      var p = path + encodeURIComponent(item.name).replace("%5C", "%5C%5C").replace(/[!'()*]/g, escape);	// Adding file name to url
+      var p = path + encodeURIComponent(item.name).replaceAll("%5C", "%5C%5C").replace(/[!'()*]/g, escape);	// Adding file name to url
       const filepath = path + item.name;
       var c = "file";
       if (is_lastpage_loaded && item.name == "README.md") {
@@ -5848,7 +5848,7 @@ function append_files_to_list(path, files) {
               <button onclick="window.open('${p}','_blank')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
                 <i class="mdui-icon material-icons dummyclass">launch</i>
               </button>
-              <button onclick="(function setClipboard(value) {var tempInput = document.createElement('input');tempInput.style = 'position: absolute; left: -1000px; top: -1000px';tempInput.value = value;document.body.appendChild(tempInput);tempInput.select();document.execCommand('${ddl_link}');document.body.removeChild(tempInput);})('test')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
+              <button onclick="(function setClipboard(value) {var tempInput = document.createElement('input');tempInput.style = 'position: absolute; left: -1000px; top: -1000px';tempInput.value = value;document.body.appendChild(tempInput);tempInput.select();document.execCommand('copy');document.body.removeChild(tempInput);})('${ddl_link}')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
                 <i class="mdui-icon material-icons dummyclass">content_copy</i>
               </button>
             </div>
