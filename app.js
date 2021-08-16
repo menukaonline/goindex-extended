@@ -5691,9 +5691,9 @@ function list(path) {
 	     Size
 	<i class="mdui-icon material-icons icon-sort" data-sort="size" data-order="downward">expand_more</i>
 	    </div>
-      <div class="mdui-col-sm-2 mdui-text-right">
+      <div class="mdui-col-sm-2 mdui-text-right dummyclass">
     Actions
-  <i class="mdui-icon material-icons icon-sort dummyclass" data-sort="size" data-order="downward">expand_more</i>
+  <i class="mdui-icon material-icons icon-sort" data-sort="size" data-order="downward">expand_more</i>
     </div>  
 	    </li> 
 	  </ul> 
@@ -5784,7 +5784,7 @@ function append_files_to_list(path, files) {
   let targetFiles = [];
   for (i in files) {
     var item = files[i];
-    var p = path + encodeURIComponent(item.name).replace("%5C", "%5C%5C") + "/";		// Adding folder name to url 
+    var p = path + encodeURIComponent(item.name).replace("%5C", "%5C%5C").replace(/[!'()*]/g, escape) + "/";		// Adding folder name to url 
     if (item.size == undefined) {
       item.size = "";
     }
@@ -5809,7 +5809,7 @@ function append_files_to_list(path, files) {
               </div>
 	        </li>`;
     } else {
-      var p = path + encodeURIComponent(item.name).replace("%5C", "%5C%5C");	// Adding file name to url
+      var p = path + encodeURIComponent(item.name).replace("%5C", "%5C%5C").replace(/[!'()*]/g, escape);	// Adding file name to url
       const filepath = path + item.name;
       var c = "file";
       if (is_lastpage_loaded && item.name == "README.md") {
