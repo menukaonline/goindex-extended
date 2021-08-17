@@ -13,9 +13,14 @@ This theme's goindex is currently based on [yanzai/goindex](https://github.com/y
  - Image Viewer - | bmp | jpg | jpeg | png | gif
  - Multi-level Search within default and team/shared drives
  - Multi drive encryption
+ - Support for all characters including emojies in file/folder names
  - Mobile Friendly
  - Page-level caching, browser forward and backward without reloading
  - Dark Theme
+ - Actions tab, includes several options
+	 - Direct download
+   - Copy file/folder link
+   - Open file/folder in a new tab
  - Main Color:
 	 - red | pink | purple | deep-purple | indigo | blue | light-blue | 
    cyan    | teal | green | light-green | lime yellow | amber orange | 
@@ -57,12 +62,13 @@ This theme's goindex is currently based on [yanzai/goindex](https://github.com/y
 ``` js
 const uiConfig = {
   .......
-  "hide_madewithlove": false, // Set this to true if you want to hide made-with-love text at the bottom of the page.
+  "hide_actions_tab": false, // Set this to true if you want to hide the actions tab which contains direct dowload, copy link, open in a new tab button
   "helpURL": "", // Provide the URL of the help page(instructions for using the index). Leave this empty if you want to hide the help icon. Providing a URL will open the help page in a new tab. (You can use telegra.ph to write instructions)
+  "footer_text": "Made with <3", // Provide the footer text. Leave this empty if you want to hide it
   .......
 };
 ```
-##  Credits
+##  Credits <3
  - [yanzai](https://github.com/yanzai/goindex)
  - [sawankumar](https://github.com/sawankumar)
  - [5MayRain](https://github.com/5MayRain)
