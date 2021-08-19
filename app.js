@@ -5614,7 +5614,7 @@ function nav(path) {
       for (i in arr) {
         var n = arr[i];
         n = decodeURI(n);
-        p += n + "/";
+        p += n.replaceAll("%5C", "%5C%5C").replace(/[!'()*]/g, escape) + "/";
         if (n == "") {
           break;
         }
