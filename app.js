@@ -5613,7 +5613,7 @@ function nav(path) {
       arr.shift();
       for (i in arr) {
         var n = arr[i];
-        n = decodeURIComponent(n);
+        n = decodeURIComponent(n.replaceAll("%5C%5C", "%5C"));
         p += encodeURIComponent(n).replaceAll("%5C", "%5C%5C").replace(/[!'()*]/g, escape) + "/";
         if (n == "") {
           break;
