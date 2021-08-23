@@ -202,7 +202,7 @@ opacity: 1; /*结尾状态 透明度为1*/
 
 @media screen and (max-width: 767px) {
 	.mdui-select {
-        width: 85px;
+        width: 130px;
     }
     
 
