@@ -5810,6 +5810,7 @@ function append_files_to_list(path, files) {
 	        </li>`;
     } else {
       var p = path + encodeURIComponent(item.name).replaceAll("%5C", "%5C%5C").replace(/[!'()*]/g, escape);	// Adding file name to url
+      var ddl_link = p;
       const filepath = path + item.name;
       var c = "file";
       if (is_lastpage_loaded && item.name == "README.md") {
@@ -5829,7 +5830,6 @@ function append_files_to_list(path, files) {
         ) >= 0
       ) {
         targetFiles.push(filepath);
-        var ddl_link = p;
         p += "?a=view";
         c += " view";
       }
