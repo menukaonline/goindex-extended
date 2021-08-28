@@ -6330,7 +6330,8 @@ function utc2beijing(utc_datetime) {
   timestamp = new Date(Date.parse(new_datetime));
   timestamp = timestamp.getTime();
   timestamp = timestamp / 1000;
-  var unixtimestamp = timestamp + 8 * 60 * 60;
+  var user_time_offset = new Date().getTimezoneOffset()/-60;
+  var unixtimestamp = timestamp + user_time_offset * 60 * 60;
   var unixtimestamp = new Date(unixtimestamp * 1000);
   var year = 1900 + unixtimestamp.getYear();
   var month = "0" + (unixtimestamp.getMonth() + 1);
@@ -6349,8 +6350,7 @@ function utc2beijing(utc_datetime) {
     ":" +
     minute.substring(minute.length - 2, minute.length) +
     ":" +
-    second.substring(second.length - 2, second.length) +
-    " UTC"
+    second.substring(second.length - 2, second.length)
   );
 }
 function formatFileSize(bytes) {
