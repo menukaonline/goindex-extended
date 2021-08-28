@@ -5788,7 +5788,7 @@ function append_files_to_list(path, files) {
     if (item.size == undefined) {
       item.size = "";
     }
-    item.modifiedTime = utc2beijing(item.modifiedTime);
+    item.modifiedTime = utc2local(item.modifiedTime);
     item.size = formatFileSize(item.size);
     if (item.mimeType == "application/vnd.google-apps.folder") {
       html += `<li class="mdui-list-item mdui-ripple"><a href="${p}" class="folder">
@@ -5973,7 +5973,7 @@ function append_search_result_to_list(files) {
     if (item.size == undefined) {
       item.size = "";
     }
-    item.modifiedTime = utc2beijing(item.modifiedTime);
+    item.modifiedTime = utc2local(item.modifiedTime);
     item.size = formatFileSize(item.size);
     if (item.mimeType == "application/vnd.google-apps.folder") {
       html += `<li class="mdui-list-item mdui-ripple"><a id="${item["id"]}" onclick="onSearchResultItemClick(this)" class="folder">
@@ -6321,16 +6321,22 @@ function file_image(path) {
     file(filepath);
   });
 }
-function utc2beijing(utc_datetime) {
+function utc2local(utc_datetime) {
   var T_pos = utc_datetime.indexOf("T");
   var Z_pos = utc_datetime.indexOf("Z");
   var year_month_day = utc_datetime.substr(0, T_pos);
   var hour_minute_second = utc_datetime.substr(T_pos + 1, Z_pos - T_pos - 1);
   var new_datetime = year_month_day + " " + hour_minute_second;
-  timestamp = new Date(Date.parse(new_datetime));
-  timestamp = timestamp.getTime();
-  timestamp = timestamp / 1000;
   var user_time_offset = new Date().getTimezoneOffset()/-60;
+  var isSafari = window.safari !== undefined;
+  if (isSafari) {
+    timestamp = new Date(Date.parse(utc_datetime));
+    timestamp = timestamp.getTime() - (user_time_offset*60*60*1000);
+  } else {
+    timestamp = new Date(Date.parse(new_datetime));
+    timestamp = timestamp.getTime();
+  }
+  timestamp = timestamp / 1000;
   var unixtimestamp = timestamp + user_time_offset * 60 * 60;
   var unixtimestamp = new Date(unixtimestamp * 1000);
   var year = 1900 + unixtimestamp.getYear();
