@@ -777,7 +777,7 @@ class googleDrive {
     // }
     
     // Success attempt #2
-    if (!obj.files) return null
+    if (!obj.files[0]) return null
     const same_name = obj.files.find(v => v.name === name)
     if (!same_name) {
         return obj.files[0].id;
