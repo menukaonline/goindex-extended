@@ -754,13 +754,34 @@ class googleDrive {
     let requestOption = await this.requestOption();
     let response = await fetch(url, requestOption);
     let obj = await response.json();
+    // stock
     // if (obj.files[0] == undefined) {
     //   return null;
     // }
     // return obj.files[0].id;
+    
+    // iwestlin PR
+    // if (!obj.files) return null
+    // const same_name = obj.files.find(v => v.name === name)
+    // if (!same_name) return null
+    // return same_name.id
+
+
+    // Success attempt #1
+    // if (!obj.files[0]) return null
+    // if (obj.files.find(v => v.name === name)) {
+    //     const same_name = obj.files.find(v => v.name === name)
+    //     return same_name.id
+    // } else {
+    //     return obj.files[0].id;
+    // }
+    
+    // Success attempt #2
     if (!obj.files) return null
     const same_name = obj.files.find(v => v.name === name)
-    if (!same_name) return null
+    if (!same_name) {
+        return obj.files[0].id;
+    }
     return same_name.id
   }
 
