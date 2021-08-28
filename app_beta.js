@@ -6328,8 +6328,7 @@ function utc2local(utc_datetime) {
   var hour_minute_second = utc_datetime.substr(T_pos + 1, Z_pos - T_pos - 1);
   var new_datetime = year_month_day + " " + hour_minute_second;
   var user_time_offset = new Date().getTimezoneOffset()/-60;
-  var isSafari = window.safari !== undefined;
-  if (isSafari) {
+  if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
     timestamp = new Date(Date.parse(utc_datetime));
     timestamp = timestamp.getTime() - (user_time_offset*60*60*1000);
   } else {
