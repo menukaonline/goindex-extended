@@ -121,7 +121,7 @@ function html(current_drive_order = 0, model = {}) {
     window.current_drive_order = ${current_drive_order};
     window.UI = JSON.parse('${JSON.stringify(uiConfig)}');
   </script>
-  <script src="https://rawcdn.githack.com/cheems/GDIndex/c25d8db977fcc70dc2e23e23ec0631bd318c449a/app.js"></script>
+  <script src="https://rawcdn.githack.com/cheems/GDIndex/9ae85f16dc85dd6b68f1e5a9aa74e2154ee642ff/app.js"></script>
 </head>
 <body>
 </body>
