@@ -5788,6 +5788,7 @@ function append_files_to_list(path, files) {
     if (item.size == undefined) {
       item.size = "";
     }
+    item.modifiedTime = utc2beijing(item.modifiedTime);
     item.size = formatFileSize(item.size);
     if (item.mimeType == "application/vnd.google-apps.folder") {
       html += `<li class="mdui-list-item mdui-ripple"><a href="${p}" class="folder">
@@ -5972,6 +5973,7 @@ function append_search_result_to_list(files) {
     if (item.size == undefined) {
       item.size = "";
     }
+    item.modifiedTime = utc2beijing(item.modifiedTime);
     item.size = formatFileSize(item.size);
     if (item.mimeType == "application/vnd.google-apps.folder") {
       html += `<li class="mdui-list-item mdui-ripple"><a id="${item["id"]}" onclick="onSearchResultItemClick(this)" class="folder">
@@ -6347,7 +6349,8 @@ function utc2beijing(utc_datetime) {
     ":" +
     minute.substring(minute.length - 2, minute.length) +
     ":" +
-    second.substring(second.length - 2, second.length)
+    second.substring(second.length - 2, second.length) +
+    " UTC"
   );
 }
 function formatFileSize(bytes) {
