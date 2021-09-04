@@ -35,6 +35,8 @@ const authConfig = {
         protect_file_link: false
       }
   ],
+//Set this to true if you need to let users download files which Google Drive has flagged as a virus
+  "enable_virus_infected_file_down": false,
 /**
   * The number displayed on each page of the file list page. [Recommended setting value is between 100 and 1000];
   * If the setting is greater than 1000, it will cause an error when requesting drive api;
@@ -402,6 +404,12 @@ class googleDrive {
     let requestOption = await this.requestOption();
     requestOption.headers['Range'] = range;
     let res = await fetch(url, requestOption);
+    if (this.authConfig.enable_virus_infected_file_down) {
+      if (res.status === 403) {
+        url += '&acknowledgeAbuse=true';
+        res = await this.fetch200(url, requestOption);
+      }
+    }
     const {headers} = res = new Response(res.body, res)
     this.authConfig.enable_cors_file_down && headers.append('Access-Control-Allow-Origin', '*');
     inline === true && headers.set('Content-Disposition', 'inline');
