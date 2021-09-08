@@ -10,8 +10,7 @@ const authConfig = {
   * Set up multiple Drives to be displayed; add multiples by format
   * [id]: It can be team folder id, subfolder id, or "root" (representing the root directory of personal disk);
   * [name]: the displayed name
-  * [user]: Basic Auth username
-  * [pass]: Basic Auth password
+  * [auth]: {'username_1' : 'password_1', 'username_2' : 'password_2'} 
   * [protect_file_link]: Whether Basic Auth is used to protect the file link, the default value (when not set) is false, that is, the file link is not protected (convenient for straight chain download / external playback, etc.)
   * Basic Auth of each folder can be set separately. Basic Auth protects all folders / subfolders in the disk by default
   * [Note] By default, the file link is not protected, which can facilitate straight-chain download / external playback;
@@ -23,17 +22,28 @@ const authConfig = {
     {
       id: "root", //you can use folderid other than root but then search wont work
       name: "Personal Drive",
-      user: 'username',
-      pass: 'password',
+      /* provide 'username':'password' combinations seperated by commas. 
+       * If you add empty values like this => auth":{"":""} then the site will still ask for authentication but user can enter without entering any data by clicking submit
+       */
+      // To enable password protection, uncomment the below code line(remove "//" in the front of the below code line)
+      // auth: {'username_1' : 'password_1', 'username_2' : 'password_2'}, 
       protect_file_link: false //true or false
     },
     {
-        id: "drive_id",
-        name: "Personal Drive II",
-        user: 'username',
-        pass: 'password',
-        protect_file_link: false
-      }
+      id: "drive_id",
+      name: "Personal Drive II",
+      // To enable password protection, uncomment the below line
+      // auth: {'username_1' : 'password_1', 'username_2' : 'password_2'},
+      protect_file_link: false
+    },
+    // You can add more drives like above
+  /*{
+      id: "drive_id",
+      name: "Personal Drive II",
+      // To enable password protection, uncomment the below line
+      // auth: {'username_1' : 'password_1', 'username_2' : 'password_2'},
+      protect_file_link: false
+    }, */
   ],
 //Set this to true if you need to let users download files which Google Drive has flagged as a virus
   "enable_virus_infected_file_down": false,
@@ -379,21 +389,26 @@ class googleDrive {
    * @param request
    * @returns {Response|null}
    */
-  basicAuthResponse(request) {
-    const user = this.root.user || '',
-      pass = this.root.pass || '',
-      _401 = new Response('Unauthorized', {
-        headers: {'WWW-Authenticate': `Basic realm="goindex:drive:${this.order}"`},
+   basicAuthResponse(request) {
+    const auth = this.root.auth || '',
+      _401 = new Response('unauthorized', {
+        headers: {
+                  'WWW-Authenticate': `Basic realm="goindex:drive:${this.order}"`,
+                  'content-type': 'text/html;charset=UTF-8'
+        },
         status: 401
       });
-    if (user || pass) {
-      const auth = request.headers.get('Authorization')
-      if (auth) {
+    if (auth) {
+      const _auth = request.headers.get('Authorization')
+      if (_auth) {
         try {
-          const [received_user, received_pass] = atob(auth.split(' ').pop()).split(':');
-          return (received_user === user && received_pass === pass) ? null : _401;
-        } catch (e) {
-        }
+          const [received_user, received_pass] = atob(_auth.split(' ').pop()).split(':');
+            if (auth.hasOwnProperty(received_user)) {
+              if (auth[received_user] == received_pass) {
+                return null;
+              } else return _401;
+            } else return _401;
+        } catch (e) {}
       }
     } else return null;
     return _401;
