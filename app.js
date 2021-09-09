@@ -5833,6 +5833,9 @@ function append_files_to_list(path, files) {
         p += "?a=view";
         c += " view";
       }
+      if (item["size"] === ""){
+        item["size"] = "Unknown";
+      }
       html += `<li class="mdui-list-item file mdui-ripple" target="_blank"><a gd-type="${item.mimeType}" href="${p}" class="${c}">
 	          <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate" title="${item.name}">
 	          <i class="mdui-icon material-icons">insert_drive_file</i>
@@ -5994,6 +5997,9 @@ function append_search_result_to_list(files) {
         ) >= 0
       ) {
         c += " view";
+      }
+      if (item["size"] === ""){
+        item["size"] = "Unknown";
       }
       html += `<li class="mdui-list-item file mdui-ripple" target="_blank"><a id="${item["id"]}" gd-type="${item.mimeType}" onclick="onSearchResultItemClick(this)" class="${c}">
 	          <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate" title="${item.name}">
