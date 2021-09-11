@@ -22,11 +22,13 @@ const authConfig = {
     {
       id: "root", //you can use folderid other than root but then search wont work
       name: "Personal Drive",
+      
       /* provide 'username':'password' combinations seperated by commas. 
        * If you add empty values like this => auth":{"":""} then the site will still ask for authentication but user can enter without entering any data by clicking submit
        */
+
       // To enable password protection, uncomment the below code line(remove "//" in the front of the below code line)
-      // auth: {'username_1' : 'password_1', 'username_2' : 'password_2'}, 
+      // auth: {'username_1' : 'password_1', 'username_2' : 'password_2'},
       protect_file_link: false //true or false
     },
     {
@@ -133,7 +135,7 @@ function html(current_drive_order = 0, model = {}) {
     window.current_drive_order = ${current_drive_order};
     window.UI = JSON.parse('${JSON.stringify(uiConfig)}');
   </script>
-  <script src="https://rawcdn.githack.com/cheems/GDIndex/81b644d0524f2f1079705ee381ad85ddb538982d/app.js"></script>
+  <script src="https://rawcdn.githack.com/cheems/GDIndex/400520970943d32cddb45af508bba4a899b6203c/app.js"></script>
 </head>
 <body>
 </body>
@@ -389,7 +391,7 @@ class googleDrive {
    * @param request
    * @returns {Response|null}
    */
-   basicAuthResponse(request) {
+  basicAuthResponse(request) {
     const auth = this.root.auth || '',
       _401 = new Response('unauthorized', {
         headers: {
@@ -449,11 +451,15 @@ class googleDrive {
     let url = 'https://www.googleapis.com/drive/v3/files';
     let params = {'includeItemsFromAllDrives': true, 'supportsAllDrives': true};
     params.q = `'${parent}' in parents and name = '${name}' and trashed = false`;
-    params.fields = "files(id, name, mimeType, size ,createdTime, modifiedTime, iconLink, thumbnailLink)";
+    params.fields = "files(id, name, mimeType, size ,createdTime, modifiedTime, iconLink, thumbnailLink, shortcutDetails)";
     url += '?' + this.enQuery(params);
     let requestOption = await this.requestOption();
     let response = await fetch(url, requestOption);
     let obj = await response.json();
+    if (obj.files && obj.files[0] && obj.files[0].mimeType == 'application/vnd.google-apps.shortcut'){
+      obj.files[0].id = obj.files[0].shortcutDetails.targetId;
+      obj.files[0].mimeType = obj.files[0].shortcutDetails.targetMimeType;
+    }
     // console.log(obj);
     return obj.files[0];
   }
@@ -505,7 +511,7 @@ class googleDrive {
     let params = {'includeItemsFromAllDrives': true, 'supportsAllDrives': true};
     params.q = `'${parent}' in parents and trashed = false AND name !='.password'`;
     params.orderBy = 'folder,name,modifiedTime desc';
-    params.fields = "nextPageToken, files(id, name, mimeType, size , modifiedTime)";
+    params.fields = "nextPageToken, files(id, name, mimeType, size , modifiedTime, shortcutDetails)";
     params.pageSize = this.authConfig.files_list_page_size;
 
     if (page_token) {
@@ -516,6 +522,12 @@ class googleDrive {
     let requestOption = await this.requestOption();
     let response = await fetch(url, requestOption);
     obj = await response.json();
+    obj.files.forEach(file => {
+      if (file && file.mimeType == 'application/vnd.google-apps.shortcut') {
+        file.id = file.shortcutDetails.targetId;
+        file.mimeType = file.shortcutDetails.targetMimeType;
+      }
+    });
 
     return {
       nextPageToken: obj.nextPageToken || null,
@@ -771,8 +783,8 @@ class googleDrive {
 
     let url = 'https://www.googleapis.com/drive/v3/files';
     let params = {'includeItemsFromAllDrives': true, 'supportsAllDrives': true};
-    params.q = `'${parent}' in parents and mimeType = 'application/vnd.google-apps.folder' and name = '${name}'  and trashed = false`;
-    params.fields = "nextPageToken, files(id, name, mimeType)";
+    params.q = `'${parent}' in parents and (mimeType = 'application/vnd.google-apps.folder' or mimeType = 'application/vnd.google-apps.shortcut') and name = '${name}'  and trashed = false`;
+    params.fields = "nextPageToken, files(id, name, mimeType, shortcutDetails)";
     url += '?' + this.enQuery(params);
     let requestOption = await this.requestOption();
     let response = await fetch(url, requestOption);
@@ -801,6 +813,13 @@ class googleDrive {
     
     // Success attempt #2
     if (!obj.files[0]) return null
+
+    if (obj.files[0].mimeType == 'application/vnd.google-apps.shortcut' && obj.files[0].shortcutDetails.targetMimeType == 'application/vnd.google-apps.folder') {
+      obj.files[0].id = obj.files[0].shortcutDetails.targetId;
+    } else if (obj.files[0].mimeType == 'application/vnd.google-apps.shortcut' && obj.files[0].shortcutDetails.targetMimeType != 'application/vnd.google-apps.folder'){
+      return null;
+    }
+    
     const same_name = obj.files.find(v => v.name === name)
     if (!same_name) {
         return obj.files[0].id;

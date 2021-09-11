@@ -10,8 +10,7 @@ const authConfig = {
   * Set up multiple Drives to be displayed; add multiples by format
   * [id]: It can be team folder id, subfolder id, or "root" (representing the root directory of personal disk);
   * [name]: the displayed name
-  * [user]: Basic Auth username
-  * [pass]: Basic Auth password
+  * [auth]: {'username_1' : 'password_1', 'username_2' : 'password_2'} 
   * [protect_file_link]: Whether Basic Auth is used to protect the file link, the default value (when not set) is false, that is, the file link is not protected (convenient for straight chain download / external playback, etc.)
   * Basic Auth of each folder can be set separately. Basic Auth protects all folders / subfolders in the disk by default
   * [Note] By default, the file link is not protected, which can facilitate straight-chain download / external playback;
@@ -23,15 +22,30 @@ const authConfig = {
     {
       id: "root", //you can use folderid other than root but then search wont work
       name: "Personal Drive",
-      // auth: {'username_1' : 'password_1', 'username_2' : 'password_2'},  //To enable password protection, uncomment this line
+      
+      /* provide 'username':'password' combinations seperated by commas. 
+       * If you add empty values like this => auth":{"":""} then the site will still ask for authentication but user can enter without entering any data by clicking submit
+       */
+
+      // To enable password protection, uncomment the below code line(remove "//" in the front of the below code line)
+      // auth: {'username_1' : 'password_1', 'username_2' : 'password_2'},
       protect_file_link: false //true or false
     },
     {
       id: "drive_id",
       name: "Personal Drive II",
-      // auth: {'username':'password'},
+      // To enable password protection, uncomment the below line
+      // auth: {'username_1' : 'password_1', 'username_2' : 'password_2'},
       protect_file_link: false
-    }
+    },
+    // You can add more drives like above
+  /*{
+      id: "drive_id",
+      name: "Personal Drive II",
+      // To enable password protection, uncomment the below line
+      // auth: {'username_1' : 'password_1', 'username_2' : 'password_2'},
+      protect_file_link: false
+    }, */
   ],
 //Set this to true if you need to let users download files which Google Drive has flagged as a virus
   "enable_virus_infected_file_down": false,
@@ -121,7 +135,7 @@ function html(current_drive_order = 0, model = {}) {
     window.current_drive_order = ${current_drive_order};
     window.UI = JSON.parse('${JSON.stringify(uiConfig)}');
   </script>
-  <script src="https://rawcdn.githack.com/cheems/GDIndex/884c7785bcac47abfcec4afe68d9ab41dd0ffe52/app.js"></script>
+  <script src="https://rawcdn.githack.com/cheems/GDIndex/400520970943d32cddb45af508bba4a899b6203c/app.js"></script>
 </head>
 <body>
 </body>
