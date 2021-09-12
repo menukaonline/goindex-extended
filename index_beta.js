@@ -130,7 +130,6 @@ const workspaceExportMimeTypes = {
   "json": "application/vnd.google-apps.script+json",
 };
 
-c
 /**
  * global functions
  */
