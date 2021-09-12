@@ -508,6 +508,9 @@ class googleDrive {
     url += '?' + this.enQuery(params);
     let requestOption = await this.requestOption();
     let response = await fetch(url, requestOption);
+    if (response.status !== 200) {
+      response = await this.fetch200(url, requestOption);
+    }
     let obj = await response.json();
     if (obj.files && obj.files[0] && obj.files[0].mimeType == 'application/vnd.google-apps.shortcut'){
       obj.files[0].id = obj.files[0].shortcutDetails.targetId;
@@ -574,6 +577,9 @@ class googleDrive {
     url += '?' + this.enQuery(params);
     let requestOption = await this.requestOption();
     let response = await fetch(url, requestOption);
+    if (response.status !== 200) {
+      response = await this.fetch200(url, requestOption);
+    }
     obj = await response.json();
     obj.files.forEach(file => {
       if (file && file.mimeType == 'application/vnd.google-apps.shortcut') {
@@ -841,6 +847,9 @@ class googleDrive {
     url += '?' + this.enQuery(params);
     let requestOption = await this.requestOption();
     let response = await fetch(url, requestOption);
+    if (response.status !== 200) {
+      response = await this.fetch200(url, requestOption);
+    }
     let obj = await response.json();
     // stock
     // if (obj.files[0] == undefined) {
