@@ -88,6 +88,50 @@ const uiConfig = {
 };
 
 /**
+ * Google Workspace Apps Export config
+ *
+ * Set preferred extensions that workspace files need to be downloaded.
+ * Use one of available extensions mentioned next to each value.
+ * Don't change the current values if you need to use the default extensions which Google drive uses.
+ */
+const exportConfig = {
+  "documents": "docx", // docx | odt | rtf | pdf | txt | html | html/zipped | epub
+  "spreadsheets": "xlsx", // xlsx | ods | csv | pdf | html/zipped
+  "slides": "pptx", // pptx | odp | pdf | txt
+  "drawings": "jpg", // odp | pdf | jpg | png | svg
+  "apps_scripts": "json", // json
+  "forms": "html/zipped" // html/zipped
+};
+
+const exportExtensions = {
+  "application/vnd.google-apps.document": exportConfig.documents,
+  "application/vnd.google-apps.spreadsheet": exportConfig.spreadsheets,
+  "application/vnd.google-apps.presentation": exportConfig.slides,
+  "application/vnd.google-apps.drawing": exportConfig.drawings,
+  "application/vnd.google-apps.form": exportConfig.forms
+};
+
+const workspaceExportMimeTypes = {
+  "docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "odt": "application/vnd.oasis.opendocument.text",
+  "rtf": "application/rtf",
+  "pdf": "application/pdf",
+  "txt": "text/plain",
+  "html": "text/html",
+  "html/zipped": "application/zip",
+  "xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "ods": "application/x-vnd.oasis.opendocument.spreadsheet",
+  "csv": "text/csv",
+  "pptx": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  "odp": "application/vnd.oasis.opendocument.presentation",
+  "jpg": "image/jpeg",
+  "png": "image/png",
+  "svg": "image/svg+xml",
+  "json": "application/vnd.google-apps.script+json",
+};
+
+c
+/**
  * global functions
  */
 const FUNCS = {
@@ -266,7 +310,7 @@ async function handleRequest(request) {
     let range = request.headers.get('Range');
     const inline_down = 'true' === url.searchParams.get('inline');
     if (gd.root.protect_file_link && basic_auth_res) return basic_auth_res;
-    return gd.down(file.id, range, inline_down);
+    return gd.down(file.id, file.mimeType, range, inline_down);
   }
 }
 
@@ -416,8 +460,17 @@ class googleDrive {
     return _401;
   }
 
-  async down(id, range = '', inline = false) {
-    let url = `https://www.googleapis.com/drive/v3/files/${id}?alt=media`;
+  async down(id, mimeType, range = '', inline = false) {
+    let exportExtension = exportExtensions[mimeType];
+    let exportMimeType = workspaceExportMimeTypes[exportExtension];
+    let url;
+    if (exportExtensions.hasOwnProperty(mimeType)) {
+      url = `https://www.googleapis.com/drive/v3/files/${id}/export?alt=media&mimeType=${exportMimeType}`;
+    } else if (mimeType === "application/vnd.google-apps.script") {
+      url = `https://script.google.com/feeds/download/export?id=${id}&format=json`;
+    }else {
+      url = `https://www.googleapis.com/drive/v3/files/${id}?alt=media`;
+    }
     let requestOption = await this.requestOption();
     requestOption.headers['Range'] = range;
     let res = await fetch(url, requestOption);
