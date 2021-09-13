@@ -49,6 +49,8 @@ const authConfig = {
   ],
 //Set this to true if you need to let users download files which Google Drive has flagged as a virus
   "enable_virus_infected_file_down": false,
+//Set this to true if you want to sort the list by modified time
+  "sort_by_modified_time": false,
 /**
   * The number displayed on each page of the file list page. [Recommended setting value is between 100 and 1000];
   * If the setting is greater than 1000, it will cause an error when requesting drive api;
@@ -562,7 +564,11 @@ class googleDrive {
     let obj;
     let params = {'includeItemsFromAllDrives': true, 'supportsAllDrives': true};
     params.q = `'${parent}' in parents and trashed = false AND name !='.password'`;
-    params.orderBy = 'folder,name,modifiedTime desc';
+    if (this.authConfig.sort_by_modified_time) {
+      params.orderBy = 'folder,modifiedTime desc,name';
+    } else {
+      params.orderBy = 'folder,name,modifiedTime desc';
+    }
     params.fields = "nextPageToken, files(id, name, mimeType, size , modifiedTime, shortcutDetails)";
     params.pageSize = this.authConfig.files_list_page_size;
 

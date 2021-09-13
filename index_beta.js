@@ -49,7 +49,7 @@ const authConfig = {
   ],
 //Set this to true if you need to let users download files which Google Drive has flagged as a virus
   "enable_virus_infected_file_down": false,
-//Set this to true if you want to sort by modified time
+//Set this to true if you want to sort the list by modified time
   "sort_by_modified_time": false,
 /**
   * The number displayed on each page of the file list page. [Recommended setting value is between 100 and 1000];
