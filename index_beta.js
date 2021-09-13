@@ -51,6 +51,8 @@ const authConfig = {
   "enable_virus_infected_file_down": false,
 //Set this to true if you want to sort the list by modified time
   "sort_by_modified_time": false,
+//Set this to true if you need to let users download deleted files from the current drive
+  "include_trashed_files": false, // Then files will be visible at where they were before moving to the trash bin
 /**
   * The number displayed on each page of the file list page. [Recommended setting value is between 100 and 1000];
   * If the setting is greater than 1000, it will cause an error when requesting drive api;
@@ -504,7 +506,10 @@ class googleDrive {
     // console.log(parent);
     let url = 'https://www.googleapis.com/drive/v3/files';
     let params = {'includeItemsFromAllDrives': true, 'supportsAllDrives': true};
-    params.q = `'${parent}' in parents and name = '${name}' and trashed = false`;
+    params.q = `'${parent}' in parents and name = '${name}'`;
+    if (!this.authConfig.include_trashed_files) {
+      params.q += ' and trashed = false';
+    }
     params.fields = "files(id, name, mimeType, size ,createdTime, modifiedTime, iconLink, thumbnailLink, shortcutDetails)";
     url += '?' + this.enQuery(params);
     let requestOption = await this.requestOption();
@@ -566,7 +571,10 @@ class googleDrive {
     }
     let obj;
     let params = {'includeItemsFromAllDrives': true, 'supportsAllDrives': true};
-    params.q = `'${parent}' in parents and trashed = false AND name !='.password'`;
+    params.q = `'${parent}' in parents AND name !='.password'`;
+    if (!this.authConfig.include_trashed_files) {
+      params.q += ' and trashed = false';
+    }
     if (this.authConfig.sort_by_modified_time) {
       params.orderBy = 'folder,modifiedTime desc,name';
     } else {
@@ -695,7 +703,10 @@ class googleDrive {
     if (page_token) {
       params.pageToken = page_token;
     }
-    params.q = `trashed = false AND name !='.password' AND (${name_search_str})`;
+    params.q = `name !='.password' AND (${name_search_str})`;
+    if (!this.authConfig.include_trashed_files) {
+      params.q += ' and trashed = false';
+    }
     params.fields = "nextPageToken, files(id, name, mimeType, size , modifiedTime)";
     params.pageSize = this.authConfig.search_result_list_page_size;
     // params.orderBy = 'folder,name,modifiedTime desc';
@@ -847,7 +858,10 @@ class googleDrive {
 
     let url = 'https://www.googleapis.com/drive/v3/files';
     let params = {'includeItemsFromAllDrives': true, 'supportsAllDrives': true};
-    params.q = `'${parent}' in parents and (mimeType = 'application/vnd.google-apps.folder' or mimeType = 'application/vnd.google-apps.shortcut') and name = '${name}'  and trashed = false`;
+    params.q = `'${parent}' in parents and (mimeType = 'application/vnd.google-apps.folder' or mimeType = 'application/vnd.google-apps.shortcut') and name = '${name}'`;
+    if (!this.authConfig.include_trashed_files) {
+      params.q += ' and trashed = false';
+    }
     params.fields = "nextPageToken, files(id, name, mimeType, shortcutDetails)";
     url += '?' + this.enQuery(params);
     let requestOption = await this.requestOption();
