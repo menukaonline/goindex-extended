@@ -5782,20 +5782,6 @@ function append_files_to_list(path, files) {
   var is_firstpage = "0" == $list.data("curPageIndex");
   html = "";
   let targetFiles = [];
-  
-  let count = 1;
-  let temp_name = "";
-  files.map(function(item){
-    if(item.name === temp_name){
-        temp_name = item.name
-        item.name = item.name + " (" + count.toString() + ")"
-        count += 1
-    } else {
-        temp_name = item.name
-        count = 1
-    }
-    return item;
-  });
   for (i in files) {
     var item = files[i];
     var p = path + encodeURIComponent(item.name).replaceAll("%5C", "%5C%5C").replace(/[!'()*]/g, escape) + "/";		// Adding folder name to url 
