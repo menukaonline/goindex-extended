@@ -53,6 +53,8 @@ const authConfig = {
   "sort_by_modified_time": false,
 //Set this to true if you need to let users download deleted files from the current drive
   "include_trashed_files": false, // Then files will be visible at where they were before moving to the trash bin
+//Set this to true if you want to force directories to load. This may cause you to exceed API rate limits
+  "force_list_to_load": false,
 /**
   * The number displayed on each page of the file list page. [Recommended setting value is between 100 and 1000];
   * If the setting is greater than 1000, it will cause an error when requesting drive api;
@@ -514,8 +516,10 @@ class googleDrive {
     url += '?' + this.enQuery(params);
     let requestOption = await this.requestOption();
     let response = await fetch(url, requestOption);
-    if (response.status !== 200) {
-      response = await this.fetch200(url, requestOption);
+    if (this.authConfig.force_list_to_load) {
+      if (response.status !== 200) {
+        response = await this.fetch200(url, requestOption);
+      }
     }
     let obj = await response.json();
     if (obj.files && obj.files[0] && obj.files[0].mimeType == 'application/vnd.google-apps.shortcut'){
@@ -590,8 +594,10 @@ class googleDrive {
     url += '?' + this.enQuery(params);
     let requestOption = await this.requestOption();
     let response = await fetch(url, requestOption);
-    if (response.status !== 200) {
-      response = await this.fetch200(url, requestOption);
+    if (this.authConfig.force_list_to_load) {
+      if (response.status !== 200) {
+        response = await this.fetch200(url, requestOption);
+      }
     }
     obj = await response.json();
     obj.files.forEach(file => {
@@ -866,8 +872,10 @@ class googleDrive {
     url += '?' + this.enQuery(params);
     let requestOption = await this.requestOption();
     let response = await fetch(url, requestOption);
-    if (response.status !== 200) {
-      response = await this.fetch200(url, requestOption);
+    if (this.authConfig.force_list_to_load) {
+      if (response.status !== 200) {
+        response = await this.fetch200(url, requestOption);
+      }
     }
     let obj = await response.json();
     // stock
