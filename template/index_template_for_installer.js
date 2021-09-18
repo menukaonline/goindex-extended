@@ -1,6 +1,6 @@
 const authConfig = {
   "siteName": "{cheems_site_name}", // WebSite Name
-  "siteIcon": "https://raw.githubusercontent.com/cheems/GDIndex/master/images/favicon.png",
+  "siteIcon": "https://raw.githubusercontent.com/cheems/goindex-extended/master/images/favicon.png",
   "version": "4.28", // VersionControl, do not modify manually
 // client_id & client_secret - PLEASE USE YOUR OWN!
   "client_id": "{cheems_client_id}", // Client ID
@@ -123,7 +123,7 @@ function html(current_drive_order = 0, model = {}) {
     window.current_drive_order = ${current_drive_order};
     window.UI = JSON.parse('${JSON.stringify(uiConfig)}');
   </script>
-  <script src="https://rawcdn.githack.com/cheems/GDIndex/81b644d0524f2f1079705ee381ad85ddb538982d/app.js"></script>
+  <script src="https://rawcdn.githack.com/cheems/goindex-extended/81b644d0524f2f1079705ee381ad85ddb538982d/app.js"></script>
 </head>
 <body>
 </body>
