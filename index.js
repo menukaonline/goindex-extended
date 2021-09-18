@@ -1,7 +1,7 @@
 const authConfig = {
   "siteName": "GoIndex Extended", // WebSite Name
   "siteIcon": "https://raw.githubusercontent.com/cheems/goindex-extended/master/images/favicon.png",
-  "version": "1.29", // VersionControl, do not modify manually
+  "version": "1.30", // VersionControl, do not modify manually
 // client_id & client_secret - PLEASE USE YOUR OWN!
   "client_id": "", // Client ID
   "client_secret": "", // Client Secret
@@ -104,8 +104,8 @@ const exportConfig = {
   "documents": "docx", // docx | odt | rtf | pdf | txt | html | html/zipped | epub
   "spreadsheets": "xlsx", // xlsx | ods | csv | pdf | html/zipped
   "slides": "pptx", // pptx | odp | pdf | txt
-  "drawings": "jpg", // odp | pdf | jpg | png | svg
-  "apps_scripts": "json", // json
+  "drawings": "jpg", // pdf | jpg | png | svg
+  "jamboard": "pdf", // pdf
   "forms": "html/zipped" // html/zipped
 };
 
@@ -132,8 +132,7 @@ const workspaceExportMimeTypes = {
   "odp": "application/vnd.oasis.opendocument.presentation",
   "jpg": "image/jpeg",
   "png": "image/png",
-  "svg": "image/svg+xml",
-  "json": "application/vnd.google-apps.script+json",
+  "svg": "image/svg+xml"
 };
 
 /**
