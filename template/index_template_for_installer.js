@@ -1,7 +1,7 @@
 const authConfig = {
   "siteName": "{cheems_site_name}", // WebSite Name
   "siteIcon": "https://raw.githubusercontent.com/cheems/goindex-extended/master/images/favicon.png",
-  "version": "4.28", // VersionControl, do not modify manually
+  "version": "1.29", // VersionControl, do not modify manually
 // client_id & client_secret - PLEASE USE YOUR OWN!
   "client_id": "{cheems_client_id}", // Client ID
   "client_secret": "{cheems_client_secret}", // Client Secret
