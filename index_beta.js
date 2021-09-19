@@ -114,6 +114,7 @@ const exportExtensions = {
   "application/vnd.google-apps.spreadsheet": exportConfig.spreadsheets,
   "application/vnd.google-apps.presentation": exportConfig.slides,
   "application/vnd.google-apps.drawing": exportConfig.drawings,
+  "application/vnd.google-apps.jam": exportConfig.jamboard,
   "application/vnd.google-apps.form": exportConfig.forms
 };
 
