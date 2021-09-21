@@ -5639,9 +5639,8 @@ function nav(path) {
         <button class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass2" onclick="window.open('${UI.helpURL}','_blank')">
           <i class="mdui-icon material-icons">help_outline</i>
         </button>`;
-  if (model.root_type < 2) {
-    html += search_bar;
-  }
+  html += search_bar;
+  
   $("#nav").html(html);
   mdui.mutation();
   mdui.updateTextFields();
