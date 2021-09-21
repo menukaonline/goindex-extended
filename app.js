@@ -5639,9 +5639,8 @@ function nav(path) {
         <button class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass2" onclick="window.open('${UI.helpURL}','_blank')">
           <i class="mdui-icon material-icons">help_outline</i>
         </button>`;
-  if (model.root_type < 2) {
-    html += search_bar;
-  }
+  html += search_bar;
+  
   $("#nav").html(html);
   mdui.mutation();
   mdui.updateTextFields();
@@ -5834,7 +5833,7 @@ function append_files_to_list(path, files) {
         c += " view";
       }
       if (item["size"] === ""){
-        item["size"] = "Unknown";
+        item["size"] = "— — —";
       }
       html += `<li class="mdui-list-item file mdui-ripple" target="_blank"><a gd-type="${item.mimeType}" href="${p}" class="${c}">
 	          <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate" title="${item.name}">
@@ -5999,7 +5998,7 @@ function append_search_result_to_list(files) {
         c += " view";
       }
       if (item["size"] === ""){
-        item["size"] = "Unknown";
+        item["size"] = "— — —";
       }
       html += `<li class="mdui-list-item file mdui-ripple" target="_blank"><a id="${item["id"]}" gd-type="${item.mimeType}" onclick="onSearchResultItemClick(this)" class="${c}">
 	          <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate" title="${item.name}">

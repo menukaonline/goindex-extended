@@ -676,6 +676,8 @@ class googleDrive {
     const types = CONSTS.gd_root_type;
     const is_user_drive = this.root_type === types.user_drive;
     const is_share_drive = this.root_type === types.share_drive;
+    const is_sub_folder = this.root_type === types.sub_folder;
+
 
     const empty_result = {
       nextPageToken: null,
@@ -683,9 +685,9 @@ class googleDrive {
       data: null
     };
 
-    if (!is_user_drive && !is_share_drive) {
-      return empty_result;
-    }
+    // if (!is_user_drive && !is_share_drive) {
+    //   return empty_result;
+    // }
     let keyword = FUNCS.formatSearchKeyword(origin_keyword);
     if (!keyword) {
       // Keyword is empty, return
@@ -716,6 +718,12 @@ class googleDrive {
     params.fields = "nextPageToken, files(id, name, mimeType, size , modifiedTime)";
     params.pageSize = this.authConfig.search_result_list_page_size;
     // params.orderBy = 'folder,name,modifiedTime desc';
+    if (is_sub_folder) {
+      params.corpora = 'allDrives';
+      params.supportsAllDrives = true;
+      params.includeItemsFromAllDrives = true;
+      params.q += `AND '${this.root.id}' in parents`;
+    }
 
     let url = 'https://www.googleapis.com/drive/v3/files';
     url += '?' + this.enQuery(params);
@@ -959,7 +967,7 @@ class googleDrive {
       if (response.status != 403) {
         break;
       }
-      await this.sleep(800 * (i + 1));
+      await this.sleep(1000 * (i + 1));
     }
     return response;
   }
