@@ -1,7 +1,7 @@
 const authConfig = {
   "siteName": "GoIndex Extended", // WebSite Name
   "siteIcon": "https://raw.githubusercontent.com/cheems/goindex-extended/master/images/favicon.png",
-  "version": "1.31", // VersionControl, do not modify manually
+  "version": "1.3.2", // VersionControl, do not modify manually
 // client_id & client_secret - PLEASE USE YOUR OWN!
   "client_id": "", // Client ID
   "client_secret": "", // Client Secret
@@ -661,6 +661,9 @@ class googleDrive {
     let url = `https://www.googleapis.com/drive/v3/drives/${any_id}`;
     let requestOption = await this.requestOption();
     let res = await fetch(url, requestOption);
+    if (res.status !== 200) {
+      res = await this.fetch200(url, requestOption);
+    }
     let obj = await res.json();
     if (obj && obj.id) return obj;
 
@@ -961,9 +964,10 @@ class googleDrive {
 
   async fetch200(url, requestOption) {
     let response;
+    await this.sleep(1100);
     for (let i = 0; i < 3; i++) {
       response = await fetch(url, requestOption);
-      console.log(response.status);
+      console.log("Response status:", response.status);
       if (response.status != 403) {
         break;
       }
