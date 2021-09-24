@@ -1,7 +1,7 @@
 const authConfig = {
   "siteName": "GoIndex Extended", // WebSite Name
   "siteIcon": "https://raw.githubusercontent.com/cheems/goindex-extended/master/images/favicon.png",
-  "version": "1.3.2", // VersionControl, do not modify manually
+  "version": "1.3.3", // VersionControl, do not modify manually
 // client_id & client_secret - PLEASE USE YOUR OWN!
   "client_id": "", // Client ID
   "client_secret": "", // Client Secret
@@ -195,6 +195,17 @@ function html(current_drive_order = 0, model = {}) {
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request));
 });
+
+function id2crc32(r) {
+  for (var a, o = [], c = 0; c < 256; c++) {
+      a = c;
+      for (var f = 0; f < 8; f++) a = 1 & a ? 3988292384 ^ a >>> 1 : a >>> 1;
+      o[c] = a
+  }
+  for (var n = -1, t = 0; t < r.length; t++) n = n >>> 8 ^ o[255 & (n ^ r.charCodeAt(t))]
+  ;
+  return (-1 ^ n) >>> 0
+};
 
 /**
  * Fetch and log a request
@@ -501,7 +512,13 @@ class googleDrive {
   async _file(path) {
     let arr = path.split('/');
     let name = arr.pop();
+    let _temp_name = name;
     name = decodeURIComponent(name).replace(/\'/g, "\\'");
+    let dupID;
+    if (/\(dupID: \d+\)/.test(name.substring(name.search(/\(dupID: \d+\)/)))) {
+        dupID = name.substring(0, name.length - 1).substring(name.search(/\(dupID: \d+/)+8);
+        name = name.substring(0, name.search(/\(dupID: \d+\)/) - 1);
+    }
     let dir = arr.join('/') + '/';
     // console.log(name, dir);
     let parent = await this.findPathId(dir);
@@ -522,13 +539,36 @@ class googleDrive {
       }
     }
     let obj = await response.json();
+    if (!obj.files[0]) {
+      return null
+    } else if (obj.files.length > 1) {
+      if (dupID) {
+        let correct_file_item;
+        obj.files.map(function(item){
+          if (id2crc32(item.id).toString() === dupID) {
+            correct_file_item = item;
+          }
+        })
+        obj.files = [];
+        obj.files.push(correct_file_item);
+      }
+    }
     if (obj.files && obj.files[0] && obj.files[0].mimeType == 'application/vnd.google-apps.shortcut'){
       obj.files[0].id = obj.files[0].shortcutDetails.targetId;
       obj.files[0].mimeType = obj.files[0].shortcutDetails.targetMimeType;
     }
     // console.log(obj);
-    return obj.files[0];
-  }
+    if (_temp_name.includes("%5C%5C")) {
+      name = _temp_name.replaceAll("%5C%5C", "%5C");
+      name = decodeURIComponent(name);
+    }
+    const same_name = obj.files.find(v => v.name === name)
+    if (!same_name) {
+      return obj.files[0];
+    }
+    return same_name;
+    // return obj.files[0];
+    }
 
   // Cache through reqeust cache
   async list(path, page_token = null, page_index = 0) {
@@ -600,6 +640,22 @@ class googleDrive {
       }
     }
     obj = await response.json();
+    let temp_names = [];
+    let duplicate_names = [];
+    obj.files.map(function(item){
+        if(!temp_names.includes(item.name)){
+            temp_names.push(item.name)
+        } else {
+            if(!duplicate_names.includes(item.name)) {
+                duplicate_names.push(item.name)
+            }
+        }
+    })
+    obj.files.map(function(item){
+        if(duplicate_names.includes(item.name)) {
+            item.name = item.name + " (dupID: " + id2crc32(item.id) + ")"
+        }
+    })
     obj.files.forEach(file => {
       if (file && file.mimeType == 'application/vnd.google-apps.shortcut') {
         file.id = file.shortcutDetails.targetId;
@@ -849,12 +905,18 @@ class googleDrive {
     let arr = path.trim('/').split('/');
     for (let name of arr) {
       c_path += name + '/';
-
+      let findDirId_again;
       if (typeof this.paths[c_path] == 'undefined') {
         let id = await this._findDirId(c_id, name);
         this.paths[c_path] = id;
+        findDirId_again = false;
       }
-
+      findDirId_again = true;
+      if (name.includes('%5C%5C') && findDirId_again) {
+        let id = await this._findDirId(c_id, name);
+        console.log("id: " + id)
+        this.paths[c_path] = id;
+      }
       c_id = this.paths[c_path];
       if (c_id == undefined || c_id == null) {
         break;
@@ -865,10 +927,13 @@ class googleDrive {
   }
 
   async _findDirId(parent, name) {
+    let _temp_name = name;
     name = decodeURIComponent(name).replace(/\'/g, "\\'");
-
-    // console.log("_findDirId", parent, name);
-
+    let dupID;
+    if (/\(dupID: \d+\)/.test(name.substring(name.search(/\(dupID: \d+\)/)))) {
+        dupID = name.substring(0, name.length - 1).substring(name.search(/\(dupID: \d+/)+8);
+        name = name.substring(0, name.search(/\(dupID: \d+\)/) - 1);
+    }
     if (parent == undefined) {
       return null;
     }
@@ -912,14 +977,31 @@ class googleDrive {
     // }
     
     // Success attempt #2
-    if (!obj.files[0]) return null
-
+    if (!obj.files[0]) {
+      return null
+    } else if (obj.files.length > 1) {
+      obj.files = obj.files.reverse();
+      if (dupID) {
+        let correct_folder_item;
+        obj.files.map(function(item){
+          if (id2crc32(item.id).toString() === dupID) {
+            correct_folder_item = item;
+          }
+        })
+        obj.files = [];
+        obj.files.push(correct_folder_item);
+      }
+    }
     if (obj.files[0].mimeType == 'application/vnd.google-apps.shortcut' && obj.files[0].shortcutDetails.targetMimeType == 'application/vnd.google-apps.folder') {
       obj.files[0].id = obj.files[0].shortcutDetails.targetId;
     } else if (obj.files[0].mimeType == 'application/vnd.google-apps.shortcut' && obj.files[0].shortcutDetails.targetMimeType != 'application/vnd.google-apps.folder'){
       return null;
     }
     
+    if (_temp_name.includes("%5C%5C")) {
+      name = _temp_name.replaceAll("%5C%5C", "%5C");
+      name = decodeURIComponent(name);
+    }
     const same_name = obj.files.find(v => v.name === name)
     if (!same_name) {
         return obj.files[0].id;
@@ -1009,4 +1091,3 @@ String.prototype.trim = function (char) {
   }
   return this.replace(/^\s+|\s+$/g, '');
 };
-//# sourceMappingURL=/sm/66a94fc3ec45fb7c78cc4edadd8e448d9b1c735f8c0cebcf7bbb4b40b9caacde.map
