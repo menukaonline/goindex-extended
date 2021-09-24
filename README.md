@@ -125,6 +125,6 @@ If you are comfortable reading comments in the code, here you go: [goindex-exten
 
 
 
-## ⚖ LICENCE
+## ⚖ LICENSE
 
-**_[GoIndex - Extended](https://github.com/cheems/goindex-extended) by [Cheems(AKA Dudoo)](https://github.com/cheems/) is licened under the [MIT License](https://opensource.org/licenses/MIT), which you can find in the [goindex-extended/LICENCE](https://github.com/cheems/goindex-extended/blob/master/LICENSE) file._**
+**_[GoIndex - Extended](https://github.com/cheems/goindex-extended) by [Cheems(AKA Dudu)](https://github.com/cheems/) is licened under the [MIT License](https://opensource.org/licenses/MIT), which you can find in the [goindex-extended/LICENSE](https://github.com/cheems/goindex-extended/blob/master/LICENSE) file._**
