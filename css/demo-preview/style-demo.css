@@ -1,0 +1,272 @@
+/* ------------------------------------------------
+ Author: ArtStyles (Art)
+ 
+ Template Name: ARCDECO.
+ version: 1.0.0
+------------------------------------------------ */
+a.underlineNone {
+  text-decoration: none;
+}
+
+/* -----------------------------------------------------------------
+    Styles Demo
+----------------------------------------------------------------- */
+@media only screen and (max-width: 992px) {
+  .navbar-demo {
+    justify-content: center;
+  }
+}
+
+.header-half-demo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+@media only screen and (max-width: 992px) {
+  .header-half-demo {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .header-half-demo::before {
+    content: '';
+    background: #15232E;
+    height: 50vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .header-half-demo::before {
+    visibility: hidden;
+  }
+}
+.header-half-demo__left, .header-half-demo__right {
+  display: flex;
+  align-items: center;
+  flex: 0 0 50%;
+  text-align: center;
+  transform: translate3d(0, 20px, 0);
+  transition: all .5s ease-in-out;
+}
+.header-half-demo__left:hover, .header-half-demo__right:hover {
+  transform: translate3d(0, 0px, 0);
+}
+.header-half-demo__left:hover .demo-image, .header-half-demo__right:hover .demo-image {
+  /*box-shadow: 0 20px 80px rgba(21, 35, 46, 0.2);*/
+}
+@media only screen and (max-width: 992px) {
+  .header-half-demo__left, .header-half-demo__right {
+    transform: translate3d(0, 0, 0) !important;
+  }
+  .header-half-demo__left:hover, .header-half-demo__right:hover {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.header-half-demo__left a.underlineNone {
+  color: #15232E;
+}
+.header-half-demo__right .title__demo {
+  color: #fff;
+}
+@media only screen and (max-width: 992px) {
+  .header-half-demo__right:hover {
+    transform: translate3d(0, 40px, 0);
+  }
+}
+@media only screen and (max-width: 580px) {
+  .header-half-demo__right {
+    background: #15232E;
+    padding-top: 1.3rem;
+  }
+}
+.header-half-demo .demo-image {
+  /*box-shadow: 0 20px 120px rgba(21, 35, 46, 0.08);*/
+  margin: auto;
+  height: auto;
+  width: 70%;
+  transition: all .5s ease-in-out;
+}
+@media only screen and (max-width: 1500px) {
+  .header-half-demo .demo-image {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .header-half-demo .demo-image {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .header-half-demo .demo-image {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.header-half-demo .title__demo {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.elastic-border {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 0;
+}
+@media only screen and (max-width: 992px) {
+  .elastic-border {
+    visibility: hidden;
+  }
+}
+
+.btnSlideNav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+}
+@media only screen and (max-width: 580px) {
+  .btnSlideNav {
+    display: none;
+  }
+}
+
+.slideOpen {
+  background: linear-gradient(to right, #0081ff 0%, #0045ff 100%);
+  border-radius: 50%;
+  box-shadow: 0 10px 15px rgba(0, 69, 255, 0.2);
+  bottom: 2rem;
+  left: 2rem;
+  width: 48px;
+  height: 48px;
+  position: fixed;
+  opacity: 1;
+  transition: all .3s ease-in;
+  z-index: 1010;
+}
+.slideOpen::before {
+  background-image: url("../demo/iconSideMenu.svg");
+  background-position: center;
+  background-size: 36%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.slideOpen:hover {
+  opacity: 1;
+}
+
+.slideClose {
+  background-image: url("../demo/iconClose.svg");
+  top: 1.5rem;
+  left: 400px;
+  width: 30px;
+  height: 30px;
+  transform: translateX(70px);
+  opacity: 0;
+  position: fixed;
+  z-index: 1012;
+}
+
+.slideNav {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2rem 0 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-380px);
+  width: 380px;
+  z-index: 1012;
+}
+@media only screen and (max-width: 580px) {
+  .slideNav {
+    display: none;
+  }
+}
+.slideNav__item {
+  color: #15232E;
+  position: relative;
+  border-bottom: 1px solid rgba(197, 210, 224, 0.4);
+  padding: .8rem 0;
+  margin: 0 2.2rem;
+  user-select: none;
+  transition: background 0.2s ease-in;
+}
+.slideNav__item:first-child {
+  border-bottom: 0;
+}
+.slideNav__item .title {
+  color: #15232E;
+  margin-bottom: .8rem;
+}
+.slideNav__item a {
+  color: #15232E;
+  text-decoration: none;
+}
+.slideNav__item a:hover {
+  color: #0045FF;
+}
+.slideNav .btn {
+  height: 48px;
+  line-height: 3.1;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+.slideNav .btn--dark {
+  background-image: linear-gradient(142.17deg, #1D1E24 6.66%, #33363D 91.48%);
+}
+
+.overlay-slideNav {
+  background-color: rgba(21, 35, 46, 0.8);
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.rtl-mode {
+  display: flex;
+  justify-content: space-between;
+}
+.rtl-mode a {
+  color: #0045FF;
+  letter-spacing: .1rem;
+}
+
+.lable-new {
+  background-color: #0045FF;
+  border-radius: 20px;
+  color: #fff;
+  font-size: .7rem;
+  padding: 3px 8px;
+  margin-left: .5rem;
+  text-transform: uppercase;
+}
+
+/*# sourceMappingURL=style-demo.css.map */
