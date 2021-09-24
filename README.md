@@ -11,7 +11,7 @@
 
 Combining the power of [Cloudflare Workers](https://workers.cloudflare.com/) and [Google Drive](https://www.google.com/drive/) will allow you to index your files on the browser on Cloudflare Workers.
 
-##  Demo
+## 🙈 Demo
 
 - **🖤 Dark Theme**: _https://dark-demo.dudoo.workers.dev_
 - **🤍 Light Theme**: _https://light-demo.dudoo.workers.dev_
