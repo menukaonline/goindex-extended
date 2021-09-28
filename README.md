@@ -30,7 +30,7 @@ Combining the power of [Cloudflare Workers](https://workers.cloudflare.com/) and
 
 ## ✨ Unique Features
 
-- 🔎 Search function also works for folder root type
+- 🔎 Search function also works for folder root type (A bug found: Working on it)
 - 🗂️ Support for duplicated file and folder names
    - 🔤 Files and folders with the same name
    - 🔠 Files and folders with the same name but different cases
