@@ -5828,13 +5828,11 @@ function append_files_to_list(path, files) {
       if (is_lastpage_loaded && item.name == "README.md") {
         get_file(p, item, function (data) {
           markdown("#readme_md", data);
-          $("img").addClass("mdui-img-fluid")
         });
       }
       if (item.name == "HEAD.md") {
         get_file(p, item, function (data) {
           markdown("#head_md", data);
-          $("img").addClass("mdui-img-fluid")
         });
       }
       var ext = p.split(".").pop().toLowerCase();
