@@ -1,7 +1,7 @@
 const authConfig = {
   "siteName": "GoIndex Extended", // WebSite Name
   "siteIcon": "https://raw.githubusercontent.com/cheems/goindex-extended/master/images/favicon-x.png", //or fevicon-x-light.png
-  "version": "1.3.3", // VersionControl, do not modify manually
+  "version": "1.3.4", // VersionControl, do not modify manually
 // client_id & client_secret - PLEASE USE YOUR OWN!
   "client_id": "", // Client ID
   "client_secret": "", // Client Secret
@@ -86,6 +86,8 @@ const uiConfig = {
   "theme": "material", // DO NOT set it to classic
   "dark_mode": true, // true or false
   "hide_actions_tab": false, // Set this to true if you want to hide the actions tab which contains direct dowload, copy link, open in a new tab button
+  "hide_head_md": false, // Set this to true if you need to disable rendering HEAD.md
+  "hide_readme_md": false, // Set this to true if you need to disable rendering README.md
   "helpURL": "", // Provide the URL of the help page(instructions for using the index). Leave this empty if you want to hide the help icon. Providing a URL will open the help page in a new tab. (You can use telegra.ph to write instructions)
   "footer_text": "Made with <3", // Provide the footer text. Leave this empty if you want to hide it.
   "credits": true, // Set this to true if you like to give credits. Otherwise you can set it to false. (NO BIG DEAL:3)
@@ -185,7 +187,7 @@ function html(current_drive_order = 0, model = {}) {
     window.current_drive_order = ${current_drive_order};
     window.UI = JSON.parse('${JSON.stringify(uiConfig)}');
   </script>
-  <script src="https://rawcdn.githack.com/cheems/goindex-extended/0c56bcac8496ba6fdd84eeb0871439db14e78ec8/app.js"></script>
+  <script src="https://rawcdn.githack.com/cheems/goindex-extended/8f0e246412679494a1b9ebee7924f478d3428b4b/app_beta.js"></script>
 </head>
 <body>
 </body>
