@@ -5513,7 +5513,7 @@ document.write(
   '<script src="//rawcdn.githack.com/cheems/goindex-extended/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/js/DPlayer.min.js"></script>'
 );
 document.write(
-  '<script src="//rawcdn.githack.com/cheems/goindex-extended/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/js/markdown-it.min.js"></script>'
+  '<script src="//cdn.jsdelivr.net/npm/marked/marked.min.js"></script>'
 );
 document.write(
   "<style>.mdui-appbar .mdui-toolbar{height:56px;font-size:1pc}.mdui-toolbar>i{opacity:.5}.mdui-toolbar>i{padding:0}.mdui-toolbar>a:hover,a.active,a.mdui-typo-headline{opacity:1}.mdui-container{max-width:980px}.mdui-list-item{transition:none}.mdui-list>.th{background-color:initial}.mdui-list-item>a{width:100%;line-height:3pc}.mdui-list-item{margin:2px 0;padding:0}.mdui-toolbar>a:last-child{opacity:1}@media screen and (max-width:980px){.mdui-list-item .mdui-text-right{display:none}.mdui-container{width:100%!important;margin:0}}</style>"
@@ -5828,11 +5828,13 @@ function append_files_to_list(path, files) {
       if (is_lastpage_loaded && item.name == "README.md") {
         get_file(p, item, function (data) {
           markdown("#readme_md", data);
+          $("img").addClass("mdui-img-fluid")
         });
       }
       if (item.name == "HEAD.md") {
         get_file(p, item, function (data) {
           markdown("#head_md", data);
+          $("img").addClass("mdui-img-fluid")
         });
       }
       var ext = p.split(".").pop().toLowerCase();
@@ -6402,13 +6404,9 @@ String.prototype.trim = function (char) {
   return this.replace(/^\s+|\s+$/g, "");
 };
 function markdown(el, data) {
-  if (window.md == undefined) {
-    window.md = window.markdownit();
-    markdown(el, data);
-  } else {
-    var html = md.render(data);
-    $(el).show().html(html);
-  }
+  var html = marked(data);
+  $(el).show().html(html);
+
 }
 window.onpopstate = function () {
   var path = window.location.pathname;
