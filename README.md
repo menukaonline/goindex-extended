@@ -53,7 +53,7 @@ Combining the power of [Cloudflare Workers](https://workers.cloudflare.com/) and
 - 📂 Ability to access/download shortcuts of files and folders
 - 🦠 Ability to download files which Google has flagged as a virus (can be disabled)
 - 🗑️ Ability to download trashed files (can be disabled)
-- 🔡 Support for all characcters including slashes('/', '\\') and emojies in file/folder names
+- 🔡 Support for all characters including slashes('/', '\\') and emojies in file/folder names
 - 📅 Shows modified date & time in your local time
 - 🕒 Modified time displaying issue on Safari browser and browsers on iOS has been fixed
 
@@ -77,7 +77,7 @@ Combining the power of [Cloudflare Workers](https://workers.cloudflare.com/) and
 
 ## 📖 Wiki
 **_Note: The Wiki will be added soon. Until then, you can check this out: [https://dudoo.me/wikis](https://dudoo.me/wikis).  
-If you are comfortable reading comments in the code, here you go: [goindex-extended/index.js](https://github.com/cheems/goindex-extended/blob/master/index.js). (Note: Don't edit the code after the [line:110](https://github.com/cheems/goindex-extended/blob/master/index.js#L110) unless you need to develop.)_**
+If you are comfortable reading comments in the code, here you go: [goindex-extended/index.js](https://github.com/cheems/goindex-extended/blob/master/index.js). (Note: Don't edit the code after the [line:112](https://github.com/cheems/goindex-extended/blob/master/index.js#L112) unless you need to develop.)_**
 
 ## 🚀 Quick Deployment
 **_Note: If you need the latest version, use index.js, which is in the root of the repo: [goindex-extended/index.js](https://github.com/cheems/goindex-extended/blob/master/index.js)._**
