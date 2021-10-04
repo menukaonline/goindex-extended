@@ -5825,12 +5825,12 @@ function append_files_to_list(path, files) {
       var ddl_link = p;
       const filepath = path + item.name;
       var c = "file";
-      if (is_lastpage_loaded && item.name == "README.md") {
+      if (is_lastpage_loaded && item.name == "README.md" && !UI.hide_readme_md) {
         get_file(p, item, function (data) {
           markdown("#readme_md", data);
         });
       }
-      if (item.name == "HEAD.md") {
+      if (item.name == "HEAD.md" && !UI.hide_head_md) {
         get_file(p, item, function (data) {
           markdown("#head_md", data);
         });
@@ -6404,7 +6404,6 @@ String.prototype.trim = function (char) {
 function markdown(el, data) {
   var html = marked(data);
   $(el).show().html(html);
-
 }
 window.onpopstate = function () {
   var path = window.location.pathname;
