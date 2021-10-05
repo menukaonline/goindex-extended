@@ -1,8 +1,8 @@
 /*隐藏滚动条*/
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 0px;
     height: 0px;
-}
+} */
 
 /*导航*/
 .nexmoe-nav {
