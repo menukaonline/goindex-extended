@@ -1,7 +1,7 @@
 const authConfig = {
   "siteName": "GoIndex Extended", // WebSite Name
   "siteIcon": "https://raw.githubusercontent.com/cheems/goindex-extended/master/images/favicon-x.png", //or fevicon-x-light.png
-  "version": "1.3.4", // VersionControl, do not modify manually
+  "version": "1.3.5", // VersionControl, do not modify manually
 // client_id & client_secret - PLEASE USE YOUR OWN!
   "client_id": "", // Client ID
   "client_secret": "", // Client Secret
@@ -85,6 +85,8 @@ const authConfig = {
 const uiConfig = {
   "theme": "material", // DO NOT set it to classic
   "dark_mode": true, // true or false
+  "title_include_drive_name": false, // Set this to true if you need to add drive name to the page title which will be displayed in browser tab name area (ex: Goindex Extented - Disk 01)
+  "title_include_path": false, // Set this to true if you need to add current path to the page title as same as in previous option (ex: Goindex Extented - /Multimedia/) or (ex: Goindex Extented - Disk 01 - /Multimedia/)
   "hide_actions_tab": false, // Set this to true if you want to hide the actions tab which contains direct dowload, copy link, open in a new tab button
   "hide_head_md": false, // Set this to true if you need to disable rendering HEAD.md
   "hide_readme_md": false, // Set this to true if you need to disable rendering README.md
@@ -187,7 +189,7 @@ function html(current_drive_order = 0, model = {}) {
     window.current_drive_order = ${current_drive_order};
     window.UI = JSON.parse('${JSON.stringify(uiConfig)}');
   </script>
-  <script src="https://rawcdn.githack.com/cheems/goindex-extended/efc3accd62dfd93c1bb620b1afc226f7b62b6ce9/app.js"></script>
+  <script src="https://rawcdn.githack.com/cheems/goindex-extended/12609e563fd46c096b97643ba95ef31ae7f0e682/app.js"></script>
 </head>
 <body>
 </body>
