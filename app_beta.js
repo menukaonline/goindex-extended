@@ -5614,7 +5614,7 @@ function title(path) {
   if (path.slice(-1) !== "/") {
     path = decodeURIComponent(path.trim("/").split("/").slice(-1)[0].replaceAll("%5C%5C", "%5C"));
   } else {
-    path = decodeURI(path);
+    path = decodeURIComponent(path.replaceAll("%5C%5C", "%5C"));
   }
   var cur = window.current_drive_order || 0;
   var drive_name = window.drive_names[cur];
