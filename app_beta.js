@@ -5611,7 +5611,6 @@ function render(path) {
   }
 }
 function title(path) {
-  console.log(path)
   if (path.slice(-1) !== "/") {
     path = decodeURIComponent(path.trim("/").split("/").slice(-1)[0].replaceAll("%5C%5C", "%5C"));
   } else {
