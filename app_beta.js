@@ -5617,7 +5617,7 @@ function title(path) {
     if (UI.title_include_path === "full-path") {
       path = decodeURIComponent(path.replaceAll("%5C%5C", "%5C"));
     } else if (UI.title_include_path === "current-directory") {
-      path = "/" + decodeURIComponent(path1.trim("/").split("/").slice(-2)[0].replaceAll("%5C%5C", "%5C")) + "/"
+      path = "/" + decodeURIComponent(path.trim("/").split("/").slice(-2)[0].replaceAll("%5C%5C", "%5C")) + "/"
     }
   }
   var cur = window.current_drive_order || 0;
