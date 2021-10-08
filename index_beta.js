@@ -87,7 +87,7 @@ const uiConfig = {
   "dark_mode": true, // true or false
   "title_include_drive_name": false, // Set this to true if you need to add drive name to the page title which will be displayed in browser tab name area (ex: Goindex Extented - Disk 01)
   "title_include_path": "", // full-path | current-directory | or leave it empty
-                            // set title_include_path to "full-path" if you want to add current path to title (ex: Goindex Extented - /Multimedia/images/) or (ex: Goindex Extented - Disk 01 - /Multimedia/images)
+                            // set title_include_path to "full-path" if you want to add full path of the current directory to title (ex: Goindex Extented - /Multimedia/images/) or (ex: Goindex Extented - Disk 01 - /Multimedia/images)
                             // set title_include_path to "current-directory" to add current directory to title (ex: Goindex Extented - /images/)
                             // If you need to remove path from page title, leave it empty as it is
   "hide_actions_tab": false, // Set this to true if you want to hide the actions tab which contains direct dowload, copy link, open in a new tab button
