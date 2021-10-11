@@ -1,7 +1,7 @@
 const authConfig = {
   "siteName": "GoIndex Extended", // WebSite Name
   "siteIcon": "https://raw.githubusercontent.com/cheems/goindex-extended/master/images/favicon-x.png", //or fevicon-x-light.png
-  "version": "1.3.5", // VersionControl, do not modify manually
+  "version": "1.3.6", // VersionControl, do not modify manually
 // client_id & client_secret - PLEASE USE YOUR OWN!
   "client_id": "", // Client ID
   "client_secret": "", // Client Secret
@@ -192,7 +192,7 @@ function html(current_drive_order = 0, model = {}) {
     window.current_drive_order = ${current_drive_order};
     window.UI = JSON.parse('${JSON.stringify(uiConfig)}');
   </script>
-  <script src="https://rawcdn.githack.com/cheems/goindex-extended/ad978bb62b6505edce554eb3ad70229d36f22488/app_beta.js"></script>
+  <script src="https://rawcdn.githack.com/cheems/goindex-extended/3c303c36ab8316f7dc660b5684d9283d89382a42/app_beta.js"></script>
 </head>
 <body>
 </body>
