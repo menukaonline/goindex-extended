@@ -6167,11 +6167,16 @@ function file_code(path) {
     md: "Markdown",
   };
   var name = path.split("/").pop();
+  var file_name = decodeURIComponent(path.trim("/").split("/").slice(-1)[0].replaceAll("%5C%5C", "%5C"));
   var ext = name.split(".").pop().toLowerCase();
   var href = window.location.origin + path;
   var content = `
 <div class="mdui-container">
 <pre id="editor" ></pre>
+</div>
+<div class="mdui-textfield">
+	<label class="mdui-textfield-label">File Name</label>
+	<input class="mdui-textfield-input" type="text" value="${file_name}"/>
 </div>
 <div class="mdui-textfield">
 	<label class="mdui-textfield-label">Download Link</label>
@@ -6210,6 +6215,7 @@ function copyToClipboard(str) {
 }
 function file_video(path) {
   const url = window.location.origin + path;
+  var file_name = decodeURIComponent(path.trim("/").split("/").slice(-1)[0].replaceAll("%5C%5C", "%5C"));
   let player_items = [
     {
       text: "MXPlayer(Free)",
@@ -6241,6 +6247,10 @@ function file_video(path) {
 	<div class="mdui-video-fluid mdui-center" id="dplayer"></div>
 	<br>${playBtn}
 	<!-- ???? -->
+  <div class="mdui-textfield">
+	  <label class="mdui-textfield-label">File Name</label>
+	  <input class="mdui-textfield-input" type="text" value="${file_name}"/>
+  </div>
 	<div class="mdui-textfield">
 	  <label class="mdui-textfield-label">Download Link</label>
 	  <input class="mdui-textfield-input" type="text" value="${url}"/>
@@ -6267,6 +6277,7 @@ function file_video(path) {
 }
 function file_audio(path) {
   var url = window.location.origin + path;
+  var file_name = decodeURIComponent(path.trim("/").split("/").slice(-1)[0].replaceAll("%5C%5C", "%5C"));
   var content = `
 <div class="mdui-container-fluid">
 	<br>
@@ -6275,6 +6286,10 @@ function file_audio(path) {
 	</audio>
 	<br>
 	<!-- ???? -->
+  <div class="mdui-textfield">
+	  <label class="mdui-textfield-label">File Name</label>
+	  <input class="mdui-textfield-input" type="text" value="${file_name}"/>
+  </div>
 	<div class="mdui-textfield">
 	  <label class="mdui-textfield-label">Download Link</label>
 	  <input class="mdui-textfield-input" type="text" value="${url}"/>
@@ -6302,6 +6317,7 @@ function file_pdf(path) {
 }
 function file_image(path) {
   var url = window.location.origin + path;
+  var file_name = decodeURIComponent(path.trim("/").split("/").slice(-1)[0].replaceAll("%5C%5C", "%5C"));
   const currentPathname = window.location.pathname;
   const lastIndex = currentPathname.lastIndexOf("/");
   const fatherPathname = currentPathname.slice(0, lastIndex + 1);
@@ -6352,6 +6368,10 @@ function file_image(path) {
 	    <img class="mdui-img-fluid" src="${url}"/>
     </div>
 	<br>
+  <div class="mdui-textfield">
+	  <label class="mdui-textfield-label">File Name</label>
+	  <input class="mdui-textfield-input" type="text" value="${file_name}"/>
+  </div>
 	<div class="mdui-textfield">
 	  <label class="mdui-textfield-label">Download Link</label>
 	  <input class="mdui-textfield-input" type="text" value="${url}"/>
