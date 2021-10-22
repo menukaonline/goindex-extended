@@ -1,7 +1,7 @@
 const authConfig = {
   "siteName": "GoIndex Extended", // WebSite Name
   "siteIcon": "https://raw.githubusercontent.com/cheems/goindex-extended/master/images/favicon-x.png", //or fevicon-x-light.png
-  "version": "1.3.6", // VersionControl, do not modify manually
+  "version": "1.3.7", // VersionControl, do not modify manually
 // client_id & client_secret - PLEASE USE YOUR OWN!
   "client_id": "", // Client ID
   "client_secret": "", // Client Secret
