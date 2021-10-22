@@ -5559,6 +5559,10 @@ document.write(
     `<style>.nav-style > a:hover {background-color: ${nav_style_colors[UI.accent_color]["background-color"]}!important; color: ${nav_style_colors[UI.accent_color]["color"]}!important}</style>`
   );
 
+document.write(
+  "<style>.dummyclass3{max-width: 570px}@media screen and (max-width:980px){.dummyclass3{display:none}}</style>"
+);
+
 function init() {
   document.siteName = $("title").html();
   $("body").addClass(
@@ -5672,8 +5676,8 @@ function nav(path) {
       idx === cur ? 'selected="selected"' : ""
     } >${name}</option>`;
   });
-  html += `</select>`;
-  html += `<a href="/${cur}:/" class="mdui-typo-headline folder">${document.siteName}</a>`;
+  html += `</select><div class="mdui-toolbar nav-style dummyclass3" style="margin-top:0px!important">`;
+  html += `<a href="/${cur}:/" class="mdui-typo-headline folder" style="background-color:transparent">${document.siteName}</a>`;
   if (!model.is_search_page) {
     var arr = path.trim("/").split("/");
     var p = "/";
@@ -5686,10 +5690,11 @@ function nav(path) {
         if (n == "") {
           break;
         }
-        html += `<i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;">chevron_right</i><a class="folder" href="/${cur}:${p}">${n}</a>`;
+        html += `<i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;">chevron_right</i><a class="folder" style="background-color:transparent;max-width:230px" href="/${cur}:${p}">${n}</a>`;
       }
     }
   }
+  html += `</div>`;
   var search_text = model.is_search_page ? model.q || "" : "";
   const isMobile = Os.isMobile;
   var search_bar = `<div class="mdui-toolbar-spacer"></div>
