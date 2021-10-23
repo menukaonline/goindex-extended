@@ -192,7 +192,7 @@ function html(current_drive_order = 0, model = {}) {
     window.current_drive_order = ${current_drive_order};
     window.UI = JSON.parse('${JSON.stringify(uiConfig)}');
   </script>
-  <script src="https://rawcdn.githack.com/cheems/goindex-extended/95d701c2c0cd3c54cfef8184ffc959e7435c9d2e/app_beta.js"></script>
+  <script src="https://rawcdn.githack.com/cheems/goindex-extended/5a6a0fecfdde15b33cd86f4a1a120d173953db87/app_beta.js"></script>
 </head>
 <body>
 </body>
