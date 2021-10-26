@@ -7,7 +7,8 @@ const authConfig = {
   "client_secret": "", // Client Secret
   "refresh_token": "", // Refresh Token
   "folder_list_url": "", // Folder Id List(Only if you have any folders in roots) - Sample: https://cdn.jsdelivr.net/gh/cheems/goindex-extended@master/sample-files/sample-folder-id-list.txt
-  "crypt_secret": "", // Crypt Secret must be 32 characters long - Sample: "1234567890123456abcdefghIJKLMN!*" | don't use these characters (\,/,",') 
+  // Crypt Secret must be 32 characters long - Sample: "1234567890123456abcdefghIJKLMN!*" | don't use these characters (\,/,",') 
+  "crypt_secret": "",  // Crypt Secret
 /**
   * Set up multiple Drives to be displayed; add multiples by format
   * [id]: It can be team folder id, subfolder id, or "root" (representing the root directory of personal disk);
