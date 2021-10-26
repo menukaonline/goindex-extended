@@ -112,7 +112,7 @@ If you are comfortable reading comments in the code, here you go: [goindex-exten
 18. Deploy the code to [Cloudflare Workers](https://workers.cloudflare.com/)
 19. If you added any folder to the index and you want the search function to work with folders as well, then scroll down a bit and check the below section
 
-## 🔎Configure Search Functionality for Folders
+## 🔎 Configure Search Functionality for Folders
 **_If you added any folder to the index and you want the search function to work with folders as well, then the below steps need to be followed. Otherwise, the Search function will not be worked properly._**
 
 **_Note: If you didn't add any folder ids to the roots section in your index, then you don't need to go through this._**
