@@ -39,8 +39,9 @@ Combining the power of [Cloudflare Workers](https://workers.cloudflare.com/) and
    - 📥 Direct Download
    - ↗️ Open link in a new tab
    - 📋 Copy link to the clipboard
+- 🔐 File id encryption
 - 🔢 File size in 1024 bytes system
-- 🔐 Support for multiple (unlimited) username/password pairs
+- 👥 Support for multiple (unlimited) username/password pairs
 - 📚 Ability to download files of Google Workspace apps in all available formats:
    - 📘 Google Documents - ( docx | odt | rtf | pdf | plain text | html | html/zipped | epub )
    - 📊 Google Spreadsheets - ( xlsx | ods | csv | pdf | html/zipped )
