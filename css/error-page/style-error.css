@@ -1,0 +1,221 @@
+.mdui-appbar .mdui-toolbar {
+    height: 56px;
+    font-size: 1pc
+}
+
+.mdui-toolbar > i {
+    opacity: .5
+}
+
+.mdui-toolbar > i {
+    padding: 0
+}
+
+.mdui-toolbar > a:hover, a.active, a.mdui-typo-headline {
+    opacity: 1
+}
+
+.mdui-container {
+    max-width: 980px
+}
+
+.mdui-list-item {
+    transition: none
+}
+
+.mdui-list > .th {
+    background-color: initial
+}
+
+.mdui-list-item > a {
+    width: 100%;
+    line-height: 3pc
+}
+
+.mdui-list-item {
+    margin: 2px 0;
+    padding: 0
+}
+
+.mdui-toolbar > a:last-child {
+    opacity: 1;
+    color: #000
+}
+
+@media screen and (max-width: 980px) {
+    .mdui-list-item .mdui-text-right {
+        display: none
+    }
+
+    .mdui-container {
+        width: 100% !important;
+        margin: 0
+    }
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+}
+
+.nexmoe-item {
+    background-color: #ffffff0d !important;
+    box-shadow: 0 0.2em 1em rgba(204, 204, 204, .5) !important
+}
+
+.mdui-list-item {
+    border: 1px solid rgb(255 255 255 / 10%) !important
+}
+
+.mdui-select-menu {
+    box-shadow: 0 0.2em 1em rgba(100, 100, 100, 0.2) !important
+}
+
+.mdui-text-color-blue-grey-500 {
+    color: #e3e4e5 !important
+}
+
+.mdui-textfield-label {
+    color: rgba(255, 255, 255, .54) !important
+}
+
+.nav-style > a:hover {
+    background-color: #448AFF !important;
+    color: #FFF !important
+}
+
+.dummyclass3 {
+    max-width: 570px
+}
+
+@media screen and (max-width: 980px) {
+    .dummyclass3 {
+        display: none
+    }
+}
+
+.nav-style-hover-red > a:hover {
+    background-color: #FF5252 !important;
+    color: #FFF !important;
+}
+
+.nav-style-hover-pink > a:hover {
+    background-color: #FF4081 !important;
+    color: #FFF !important;
+}
+
+.nav-style-hover-purple > a:hover {
+    background-color: #E040FB !important;
+    color: #FFF !important;
+}
+
+.nav-style-hover-deep-purple > a:hover {
+    background-color: #7C4DFF !important;
+    color: #FFF !important;
+}
+
+.nav-style-hover-indigo > a:hover {
+    background-color: #536DFE !important;
+    color: #FFF !important;
+}
+
+.nav-style-hover-blue > a:hover {
+    background-color: #448AFF !important;
+    color: #FFF !important;
+}
+
+.nav-style-hover-light-blue > a:hover {
+    background-color: #40C4FF !important;
+    color: #FFF !important;
+}
+
+.nav-style-hover-cyan > a:hover {
+    background-color: #18FFFF !important;
+    color: #000 !important;
+}
+
+.nav-style-hover-teal > a:hover {
+    background-color: #64FFDA !important;
+    color: #000 !important;
+}
+
+.nav-style-hover-green > a:hover {
+    background-color: #69F0AE !important;
+    color: #FFF !important;
+}
+
+.nav-style-hover-light-green > a:hover {
+    background-color: #B2FF59 !important;
+    color: #000 !important;
+}
+
+.nav-style-hover-lime > a:hover {
+    background-color: #EEFF41 !important;
+    color: #000 !important;
+}
+
+.nav-style-hover-yellow > a:hover {
+    background-color: #FFFF00 !important;
+    color: #000 !important;
+}
+
+.nav-style-hover-amber > a:hover {
+    background-color: #FFD740 !important;
+    color: #FFF !important;
+}
+
+.nav-style-hover-orange > a:hover {
+    background-color: #FFAB40 !important;
+    color: #FFF !important;
+}
+
+.nav-style-hover-deep-orange > a:hover {
+    background-color: #FF6E40 !important;
+    color: #FFF !important;
+}
+
+.dummyclass4{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 40%!important;
+}
+
+@media (min-width: 480px) {
+    .dummyclass4{
+        margin-bottom: 23px !important;
+        min-width: 350px!important;
+    }
+}
+
+@media (max-width: 480px) {
+    .dummyclass4{
+        margin-bottom: 23px !important;
+        width: 90%!important;
+    }
+}
+
+@media (min-width: 178px) {
+    .mdui-toolbar > a, .mdui-toolbar > i {
+        display: block;
+    }
+}
+
+.myself .property{
+    opacity: 0.7;
+    width:40%;
+    height: 25px;
+    display:inline-block;
+    box-sizing:border-box;
+    text-align:right;
+}
+
+.myself .value{
+    opacity: 0.7;
+    text-align:left;
+    padding-left:10px;
+    width:60%;
+    display:inline-flex;
+    box-sizing:border-box;
+}
