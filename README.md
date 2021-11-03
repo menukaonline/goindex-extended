@@ -76,6 +76,11 @@ Combining the power of [Cloudflare Workers](https://workers.cloudflare.com/) and
 - 🖌 Accent Color:
    - red | pink | purple | deep-purple | indigo | blue | light-blue | cyan | teal | green | light-green | lime | yellow | amber | orange | deep-orange
 
+## 📋 TODO
+ - [ ] Completing to-do list
+ - [ ] Adding Plyr video player
+ - [ ] Implementing service accounts feature
+
 ## 📖 Wiki
 **_Note: The Wiki will be added soon. Until then, you can check this out: [https://dudoo.me/wikis](https://dudoo.me/wikis).  
 If you are comfortable reading comments in the code, here you go: [goindex-extended/index.js](https://github.com/cheems/goindex-extended/blob/master/index.js). (Note: Don't edit the code after the [line:118](https://github.com/cheems/goindex-extended/blob/master/index.js#L118) unless you need to develop.)_**
