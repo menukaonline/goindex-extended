@@ -77,7 +77,7 @@ Combining the power of [Cloudflare Workers](https://workers.cloudflare.com/) and
    - red | pink | purple | deep-purple | indigo | blue | light-blue | cyan | teal | green | light-green | lime | yellow | amber | orange | deep-orange
 
 ## 📋 TODO
- - [ ] Completing to-do list
+ - [ ] Adding all expected tasks to the to-do list
  - [ ] Adding Plyr video player
  - [ ] Implementing service accounts feature
 
