@@ -6493,7 +6493,7 @@ String.prototype.trim = function (char) {
   return this.replace(/^\s+|\s+$/g, "");
 };
 function markdown(el, data) {
-  var html = marked(data);
+  var html = marked.parse(data);
   $(el).show().html(html);
 }
 window.onpopstate = function () {
