@@ -1,12 +1,12 @@
 const authConfig = {
-  "siteName": "GoIndex Extended", // WebSite Name
+  "siteName": "ミ 𝕌𝕟𝕚𝕝𝕚𝕞𝕚𝕥𝕩 彡", // WebSite Name
   "siteIcon": "https://raw.githubusercontent.com/cheems/goindex-extended/master/images/favicon-x.png", //or fevicon-x-light.png
   "version": "1.4.1", // VersionControl, do not modify manually
   // client_id & client_secret - PLEASE USE YOUR OWN!
-  "client_id": "", // Client ID
-  "client_secret": "", // Client Secret
-  "refresh_token": "", // Refresh Token
-  "folder_list_url": "", // Folder Id List(Only if you have any folders in roots) - Sample: https://cdn.jsdelivr.net/gh/cheems/goindex-extended@master/sample-files/sample-folder-id-list.txt
+  "client_id": "340077371440-kushjlr3tdj3hvd7aubuqer805nbdvs3.apps.googleusercontent.com", // Client ID
+  "client_secret": "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", // Client Secret
+  "refresh_token": "1//0d-yruQDHu3McCgYIARAAGA0SNwF-L9Irl46AmldWj6aJQtyG8vCUBE3UesnGm9sdId569XtUsqay1N7wlnIWokzi7rcUTcc2yXk", // Refresh Token
+  "folder_list_url": "", // FolderGOCSPX-N2sDzNLYiaUgrAfXkw-SnnEQ0L10 Id List(Only if you have any folders in roots) - Sample: https://cdn.jsdelivr.net/gh/cheems/goindex-extended@master/sample-files/sample-folder-id-list.txt
   // Crypt Secret must be 32 characters long - Sample: "1234567890123456abcdefghIJKLMN!*" | don't use these characters (\,/,",') 
   "crypt_secret": "", // Crypt Secret (Required)* This is used to encrypt file ids
   /**
@@ -24,8 +24,8 @@ const authConfig = {
   // =================== ROOTS ===================
   "roots": [
     {
-      id: "root", //you can use folderid other than root but then search wont work
-      name: "Personal Drive",
+      id: "0AM-nfCZKtkTVUk9PVA", //you can use folderid other than root but then search wont work
+      name: "Unilimitx",
 
       /* provide 'username':'password' combinations seperated by commas. 
        * If you add empty values like this => auth":{"":""} then the site will still ask for authentication but user can enter without entering any data by clicking submit
