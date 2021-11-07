@@ -78,7 +78,7 @@ Combining the power of [Cloudflare Workers](https://workers.cloudflare.com/) and
 
 ## 📋 TODO
  - [ ] Adding all expected tasks to the to-do list
- - [ ] Adding Plyr video player
+ - [ ] Adding Plyr video player (almost completed)
  - [ ] Implementing service accounts feature
 
 ## 📖 Wiki
