@@ -5875,7 +5875,7 @@ function append_files_to_list(path, files) {
 	              <button onclick="window.open('${p}','_blank')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
                   <i class="mdui-icon material-icons dummyclass">launch</i>
                 </button>
-                <button onclick="(function setClipboard(value) {var tempInput = document.createElement('input');tempInput.style = 'position: absolute; left: -1000px; top: -1000px';tempInput.value = value;document.body.appendChild(tempInput);tempInput.select();document.execCommand('copy');document.body.removeChild(tempInput);})(window.location.protocol + '//' + window.location.hostname + '${p}')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
+                <button id="copy-link-message" onclick="(function setClipboard(value) {var tempInput = document.createElement('input');tempInput.style = 'position: absolute; left: -1000px; top: -1000px';tempInput.value = value;document.body.appendChild(tempInput);tempInput.select();document.execCommand('copy');document.body.removeChild(tempInput);})(window.location.protocol + '//' + window.location.hostname + '${p}')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
                   <i class="mdui-icon material-icons dummyclass">content_copy</i>
                 </button>
               </div>
@@ -5923,11 +5923,14 @@ function append_files_to_list(path, files) {
               <button onclick="window.open('${p}','_blank')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
                 <i class="mdui-icon material-icons dummyclass">launch</i>
               </button>
-              <button onclick="(function setClipboard(value) {var tempInput = document.createElement('input');tempInput.style = 'position: absolute; left: -1000px; top: -1000px';tempInput.value = value;document.body.appendChild(tempInput);tempInput.select();document.execCommand('copy');document.body.removeChild(tempInput);})(window.location.protocol + '//' + window.location.hostname + '${ddl_link}')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
+              <button id="copy-link-message" onclick="(function setClipboard(value) {var tempInput = document.createElement('input');tempInput.style = 'position: absolute; left: -1000px; top: -1000px';tempInput.value = value;document.body.appendChild(tempInput);tempInput.select();document.execCommand('copy');document.body.removeChild(tempInput);})(window.location.protocol + '//' + window.location.hostname + '${ddl_link}')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
                 <i class="mdui-icon material-icons dummyclass">content_copy</i>
               </button>
             </div>
 	      </li>`;
+	    $("#copy-link-message").on("click", () => {
+                mdui.snackbar("Copied to clipboard!");
+            });
     }
   }
   if (targetFiles.length > 0) {
