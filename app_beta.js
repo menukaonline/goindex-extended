@@ -5481,59 +5481,40 @@
 
 
 if (UI.dark_mode) {
-  document.write(
-    '<meta name="theme-color" content="#273139">'
-  );
-}
-if (UI.dark_mode) {
-  document.write(
-    '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/goindex-extended/b46bb643bb1c1314b669142e5e62d96a877b952b/css/mdui_v2_dark.min.css">'
-  );
+  document.write('<meta name="theme-color" content="#273139">');
+  document.write('<link rel="stylesheet" href="//rawcdn.githack.com/cheems/goindex-extended/b46bb643bb1c1314b669142e5e62d96a877b952b/css/mdui_v2_dark.min.css">');
+  document.write('<link rel="stylesheet" href="//rawcdn.githack.com/cheems/goindex-extended/f9af6b2192974a4a9c1b222efed8d29ca6cd1927/css/nexmoe_v2_dark.min.css">');
 } else {
-  document.write(
-    '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/goindex-extended/b46bb643bb1c1314b669142e5e62d96a877b952b/css/mdui_v2.min.css">'
-  );
+  document.write('<link rel="stylesheet" href="//rawcdn.githack.com/cheems/goindex-extended/b46bb643bb1c1314b669142e5e62d96a877b952b/css/mdui_v2.min.css">');
+  document.write('<link rel="stylesheet" href="//rawcdn.githack.com/cheems/goindex-extended/f9af6b2192974a4a9c1b222efed8d29ca6cd1927/css/nexmoe_v2.min.css">');
 }
-if (UI.dark_mode) {
-  document.write(
-    '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/goindex-extended/f9af6b2192974a4a9c1b222efed8d29ca6cd1927/css/nexmoe_v2_dark.min.css">'
-  );
-} else {
-  document.write(
-    '<link rel="stylesheet" href="//rawcdn.githack.com/cheems/goindex-extended/f9af6b2192974a4a9c1b222efed8d29ca6cd1927/css/nexmoe_v2.min.css">'
-  );
-}
-document.write(
-  '<script src="//rawcdn.githack.com/cheems/goindex-extended/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/js/mdui.min.js"></script>'
-);
-document.write(
-  '<script src="//rawcdn.githack.com/cheems/goindex-extended/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/js/flv.min.js"></script>'
-);
-document.write(
-  '<script src="//rawcdn.githack.com/cheems/goindex-extended/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/js/DPlayer.min.js"></script>'
-);
-document.write(
-  '<script src="//cdn.jsdelivr.net/npm/marked@4.0.0/marked.min.js"></script>'
-);
-document.write(
-  "<style>.mdui-appbar .mdui-toolbar{height:56px;font-size:1pc}.mdui-toolbar>i{opacity:.5}.mdui-toolbar>i{padding:0}.mdui-toolbar>a:hover,a.active,a.mdui-typo-headline{opacity:1}.mdui-container{max-width:980px}.mdui-list-item{transition:none}.mdui-list>.th{background-color:initial}.mdui-list-item>a{width:100%;line-height:3pc}.mdui-list-item{margin:2px 0;padding:0}.mdui-toolbar>a:last-child{opacity:1; color: #000}@media screen and (max-width:980px){.mdui-list-item .mdui-text-right{display:none}.mdui-container{width:100%!important;margin:0}}</style>"
-);
-if (UI.dark_mode) {
-  document.write(
-    "<style>* {box-sizing: border-box}body{color:rgba(255,255,255,.87);background-color:#1E252F}.mdui-theme-primary-${UI.main_color} .mdui-color-theme{background-color:#1E252F!important} .nexmoe-item{background-color: #ffffff0d!important;box-shadow:0 0.2em 1em rgb(0 0 0 / 30%)!important} .mdui-list-item{border: 1px solid rgb(255 255 255 / 10%)!important}.mdui-toolbar>a:last-child{color: #FFF}.mdui-select-menu{box-shadow: 0 0.2em 1em rgba(100, 100, 100, 0.2)!important} .mdui-text-color-blue-grey-500{color: #e3e4e5 !important} .mdui-textfield-label{color: rgba(255, 255, 255, .54)!important}</style>"
-  );
-}
+document.write('<script src="//rawcdn.githack.com/cheems/goindex-extended/295ceaf2d64b2cb8578b21c0313d75b7bc8738a1/js/mdui.min.js"></script>');
 
+// Players
+// -- DPlayer
+document.write('<script src="//cdn.jsdelivr.net/npm/hls.js@1.0.12/dist/hls.min.js"></script>');
+document.write('<script src="//cdn.jsdelivr.net/npm/dashjs@4.0.1/dist/dash.all.debug.min.js"></script>');
+document.write('<script src="//cdn.jsdelivr.net/npm/flv.js@1.6.1/dist/flv.min.js"></script>');
+document.write('<script src="//cdn.jsdelivr.net/npm/cdnbye@latest"></script>');
+document.write('<script src="//cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js"></script>');
+// -- Plyr
+document.write('<script src="//cdn.rawgit.com/video-dev/hls.js/18bb552/dist/hls.min.js"></script>');
+document.write('<script src="//cdn.dashjs.org/latest/dash.all.min.js"></script>');
+document.write('<script src="//cdn.jsdelivr.net/npm/plyr@3.6.8/dist/plyr.min.js"></script>');
+document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/plyr@3.6.8/dist/plyr.min.css">');
+
+document.write('<script src="//cdn.jsdelivr.net/npm/marked@4.0.0/marked.min.js"></script>');
+document.write('<script src="//cdn.jsdelivr.net/gh/meikidd/iso-639-1@1876e098a17ed74240f33f75055ff812df6adf78/build/index.js"></script>');
+
+document.write("<style>.mdui-appbar .mdui-toolbar{height:56px;font-size:1pc}.mdui-toolbar>i{opacity:.5}.mdui-toolbar>i{padding:0}.mdui-toolbar>a:hover,a.active,a.mdui-typo-headline{opacity:1}.mdui-container{max-width:980px}.mdui-list-item{transition:none}.mdui-list>.th{background-color:initial}.mdui-list-item>a{width:100%;line-height:3pc}.mdui-list-item{margin:2px 0;padding:0}.mdui-toolbar>a:last-child{opacity:1; color: #000}@media screen and (max-width:980px){.mdui-list-item .mdui-text-right{display:none}.mdui-container{width:100%!important;margin:0}}</style>");
+if (UI.dark_mode) {
+    document.write("<style>* {box-sizing: border-box}body{color:rgba(255,255,255,.87);background-color:#1E252F}.mdui-theme-primary-${UI.main_color} .mdui-color-theme{background-color:#1E252F!important} .nexmoe-item{background-color: #ffffff0d!important;box-shadow:0 0.2em 1em rgb(0 0 0 / 30%)!important} .mdui-list-item{border: 1px solid rgb(255 255 255 / 10%)!important}.mdui-toolbar>a:last-child{color: #FFF}.mdui-select-menu{box-shadow: 0 0.2em 1em rgba(100, 100, 100, 0.2)!important} .mdui-text-color-blue-grey-500{color: #e3e4e5 !important} .mdui-textfield-label{color: rgba(255, 255, 255, .54)!important}</style>");
+}
 if (UI.hide_actions_tab) {
-  document.write(
-    "<style>.dummyclass{display: none!important}</style>"
-  );
+  document.write("<style>.dummyclass{display: none!important}</style>" );
 }
-
 if(UI.helpURL === '') {
-  document.write(
-    "<style>.dummyclass2{display: none!important}</style>"
-  );
+  document.write("<style>.dummyclass2{display: none!important}</style>");
 }
 
 const nav_style_colors = {
@@ -5555,13 +5536,8 @@ const nav_style_colors = {
   "deep-orange": {"background-color": "#FF6E40", "color": "#FFF"},
 }
 
-document.write(
-    `<style>.nav-style > a:hover {background-color: ${nav_style_colors[UI.accent_color]["background-color"]}!important; color: ${nav_style_colors[UI.accent_color]["color"]}!important}</style>`
-  );
-
-document.write(
-  "<style>.dummyclass3{max-width: 570px}@media screen and (max-width:980px){.dummyclass3{display:none}}</style>"
-);
+document.write(`<style>.nav-style > a:hover {background-color: ${nav_style_colors[UI.accent_color]["background-color"]}!important; color: ${nav_style_colors[UI.accent_color]["color"]}!important}</style>`);
+document.write("<style>.dummyclass3{max-width: 570px}@media screen and (max-width:980px){.dummyclass3{display:none}}</style>");
 
 function init() {
   document.siteName = $("title").html();
@@ -6243,25 +6219,73 @@ function copyToClipboard(str) {
 }
 function file_video(path) {
   const url = window.location.origin + path;
+  var ext = url.split('.').pop().toLowerCase().toLowerCase();
+  var urlPath = url.substring(0, url.length - `.${ext}`.length);
+  var fileName = urlPath.split('/').pop();
+  if (fileName.includes(".cvr-")) {
+      fileName = fileName.substring(0, fileName.lastIndexOf(".cvr-"));
+  }
+  if (fileName.includes(".sub-")) {
+      fileName = fileName.substring(0, fileName.lastIndexOf(".sub-"));
+  }
+  if (fileName.includes(".sublang-")) {
+      fileName = fileName.substring(0, fileName.lastIndexOf(".sub-lang"));
+  }
+  urlPath = urlPath.substring(0, urlPath.lastIndexOf('/') + 1)
   var file_name = decodeURIComponent(path.trim("/").split("/").slice(-1)[0].replaceAll("%5C%5C", "%5C"));
+  var file_name_without_ext = file_name.substring(0, file_name.length - `.${ext}`.length);
+  var video_cover_ext, video_subtitle_ext, video_subtitle_langs;
+  if (file_name_without_ext.includes(".cvr-")) {
+      video_cover_ext = file_name_without_ext.substring(file_name_without_ext.lastIndexOf(".cvr-"), file_name_without_ext.length).split(".cvr-")[1];
+      if (video_cover_ext.includes(".sub-")) {
+          video_cover_ext = video_cover_ext.split(".sub-")[0];
+      }
+  } else {
+      video_cover_ext = "jpg";
+  }
+  if (file_name_without_ext.includes(".sub-")) {
+      video_subtitle_ext = file_name_without_ext.substring(file_name_without_ext.lastIndexOf(".sub-"), file_name_without_ext.length).split(".sub-")[1];
+      if (video_subtitle_ext.includes(".sublang-")) {
+          video_subtitle_ext = video_subtitle_ext.split(".sublang-")[0];
+      }
+  }  else {
+      video_subtitle_ext = "vtt";
+  }
+  if (file_name_without_ext.includes(".sublang-")) {
+      video_subtitle_langs = file_name_without_ext.substring(file_name_without_ext.lastIndexOf(".sublang-"), file_name_without_ext.length).split(".sublang-")[1];
+      if (video_subtitle_langs.includes("-")) {
+          video_subtitle_langs = video_subtitle_langs.split("-");
+      } else {
+          video_subtitle_langs = [video_subtitle_langs];
+      }
+  } else {
+      video_subtitle_langs = ["en"];
+  }
+
   let player_items = [
-    {
-      text: "MXPlayer(Free)",
-      href: `intent:${url}#Intent;package=com.mxtech.videoplayer.ad;S.title=${path};end`,
-    },
-    {
-      text: "MXPlayer(Pro)",
-      href: `intent:${url}#Intent;package=com.mxtech.videoplayer.pro;S.title=${path};end`,
-    },
-    { text: "nPlayer", href: `nplayer-${url}` },
-    { text: "VLC", href: `vlc://${url}` },
-    { text: "PotPlayer", href: `potplayer://${url}` },
+      {
+          text: "MXPlayer(Free)",
+          href: `intent:${url}#Intent;package=com.mxtech.videoplayer.ad;S.title=${path};end`,
+      },
+      {
+          text: "MXPlayer(Pro)",
+          href: `intent:${url}#Intent;package=com.mxtech.videoplayer.pro;S.title=${path};end`,
+      },
+      {
+          text: "nPlayer", href: `nplayer-${url}`
+      },
+      {
+          text: "VLC", href: `vlc://${url}`
+      },
+      {
+          text: "PotPlayer", href: `potplayer://${url}`
+      },
   ]
-    .map(
-      (it) =>
-        `<li class="mdui-menu-item"><a href="${it.href}" class="mdui-ripple">${it.text}</a></li>`
-    )
-    .join("");
+      .map(
+          (it) =>
+              `<li class="mdui-menu-item"><a href="${it.href}" class="mdui-ripple">${it.text}</a></li>`
+      )
+      .join("");
   player_items += `<li class="mdui-divider"></li>
                    <li class="mdui-menu-item"><a id="copy-link" class="mdui-ripple">Copy Link</a></li>`;
   const playBtn = `
@@ -6269,39 +6293,223 @@ function file_video(path) {
         <i class="mdui-icon material-icons">&#xe039;</i>Play In External Player<i class="mdui-icon material-icons">&#xe5cf;</i>
       </button>
       <ul class="mdui-menu" id="player-items">${player_items}</ul>`;
-  const content = `
+
+  var playerUI;
+  var playerType;
+  const plyrUI = `<video id="player" class="mdui-video-fluid mdui-center" playsinline controls ></video>`;
+  const dpUI = `<div id="dplayer" class="mdui-video-fluid mdui-center" ></div>`;
+  const player_file = PLYR.player_dp;
+
+  if (player_file.indexOf(`|${ext}|`) >= 0) {
+      playerUI = dpUI;
+      if (ext == 'flv') {
+          playerType = 'customFlv';
+      } else if (ext == 'm3u8') {
+          playerType = 'customHls';
+      } else if (ext == 'mpd') {
+          playerType = 'customDash';
+      } else {
+          playerType = 'auto';
+      }
+  } else {
+      playerUI = plyrUI;
+      if (ext == 'mp4') {
+          playerType = 'mp4';
+      } else if (ext == 'webm') {
+          playerType = 'webm';
+      } else if (ext == 'ogg') {
+          playerType = 'ogg';
+      } else {
+          playerType = 'mp4';
+      }
+  }
+
+  // ${fileName}.${ext}
+  var video_cover, video_subtitle, video_subtitles;
+  video_cover = PLYR.video_cover.replace("${ext}", video_cover_ext);
+  if (video_cover.includes("${fileName}")) {
+      video_cover = video_cover.replace("${fileName}", fileName);
+  }
+  // ${fileName}.${ext}
+  video_subtitles = [];
+  video_subtitle = PLYR.video_subtitle.replace("${ext}", video_subtitle_ext);
+  if (video_subtitle.includes("${fileName}")) {
+      video_subtitle = video_subtitle.replace("${fileName}", fileName);
+  }
+  for (var i = 0; i < video_subtitle_langs.length; i++) {
+      let caption_track_single, caption_default_value, caption_src_value;
+      if (video_subtitle_langs.length == 1) {
+          caption_src_value = urlPath + video_subtitle;
+      } else {
+          caption_src_value = video_subtitle.substring(0, video_subtitle.lastIndexOf("." + video_subtitle_ext));
+          caption_src_value = urlPath + caption_src_value + "-" + video_subtitle_langs[i] + "." + video_subtitle_ext;
+      }
+      if (i == 0) {
+          caption_default_value = true;
+      } else {
+          caption_default_value = false;
+      }
+      caption_track_single = {
+          kind: 'captions',
+          label: ISO6391.getName(video_subtitle_langs[i]),
+          srclang: video_subtitle_langs[i],
+          src: caption_src_value,
+          default: caption_default_value,
+      };
+      video_subtitles.push(caption_track_single);
+  }
+
+
+  var content = `
 <div class="mdui-container-fluid">
-	<br>
-	<div class="mdui-video-fluid mdui-center" id="dplayer"></div>
-	<br>${playBtn}
-	<!-- ???? -->
+    <br>
+    ${playerUI}
+    <br>${playBtn}
+    <!-- Fixed Label -->
   <div class="mdui-textfield">
-	  <label class="mdui-textfield-label">File Name</label>
-	  <input class="mdui-textfield-input" type="text" value="${file_name}"/>
+      <label class="mdui-textfield-label">File Name</label>
+      <input class="mdui-textfield-input" type="text" value="${file_name}"/>
   </div>
-	<div class="mdui-textfield">
-	  <label class="mdui-textfield-label">Download Link</label>
-	  <input class="mdui-textfield-input" type="text" value="${url}"/>
-	</div>
+    <div class="mdui-textfield">
+      <label class="mdui-textfield-label">Download Link</label>
+      <input class="mdui-textfield-input" type="text" value="${url}"/>
+    </div>
 </div>
 <a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
-	`;
+`;
   $("#content").html(content);
   $("#copy-link").on("click", () => {
-    copyToClipboard(url);
-    mdui.snackbar("Copied to clipboard!");
+      copyToClipboard(url);
+      mdui.snackbar("Copied to clipboard!");
   });
+  if (ext == 'm3u8') {
+      const video = document.querySelector('video');
+      const player = new Plyr(video, {
+          controls: ['play-large', 'restart', 'play', 'progress', 'current-time', 'duration', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
+          settings: ['captions', 'quality', 'speed', 'loop'],
+          blankVideo: 'https://cdn.plyr.io/static/blank.mp4',
+          autoplay: PLYR.autoplay,
+          disableContextMenu: false,
+          loop: {
+              active: PLYR.loop
+          },
+          captions: {
+              active: true,
+              update: true,
+              language: 'auto'
+          },
+      });
+
+      if (!Hls.isSupported()) {
+          video.src = url;
+      } else {
+          const hls = new Hls();
+          hls.loadSource(url);
+          hls.attachMedia(video);
+          window.hls = hls;
+          player.on('languagechange', () => {
+              setTimeout(() => hls.subtitleTrack = player.currentTrack, 50);
+          });
+      }
+      window.player = player;
+  } else if (ext == 'mpd') {
+      const source = url;
+      const dash = dashjs.MediaPlayer().create();
+      const video = document.querySelector('video');
+      dash.initialize(video, source, true);
+      const player = new Plyr(video, {
+          controls: ['play-large', 'restart', 'play', 'progress', 'current-time', 'duration', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
+          settings: ['captions', 'quality', 'speed', 'loop'],
+          blankVideo: 'https://cdn.plyr.io/static/blank.mp4',
+          autoplay: PLYR.autoplay,
+          disableContextMenu: false,
+          loop: {
+              active: PLYR.loop
+          },
+          captions: { active: true, update: true }
+      });
+      window.player = player;
+      window.dash = dash;
+  } else {
+      const player = new Plyr('#player', {
+          controls: ['play-large', 'restart', 'play', 'progress', 'current-time', 'duration', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
+          settings: ['captions', 'quality', 'speed', 'loop'],
+          blankVideo: 'https://cdn.plyr.io/static/blank.mp4',
+          autoplay: PLYR.autoplay,
+          disableContextMenu: false,
+          loop: {
+              active: PLYR.loop
+          },
+      });
+      player.source = {
+          type: 'video',
+          sources: [{
+              src: url,
+              type: 'video/' + playerType,
+              size: 1080,
+          }, ],
+          poster: urlPath + video_cover,
+          previewThumbnails: {
+              enabled: true,
+              src: urlPath + PLYR.thumbnails[1].url,
+          },
+          tracks: video_subtitles,
+      };
+      window.player = player;
+  }
+  convertSRT2VTT();
+
   const dp = new DPlayer({
-    container: document.getElementById("dplayer"),
-    loop: false,
-    screenshot: true,
-    preload: "auto",
-    video: {
-      quality: [{ url: url, type: "normal" }],
-      autoplay: true,
-      defaultQuality: 0,
-    },
+      container: document.getElementById('dplayer'),
+      autoplay: PLYR.autoplay,
+      theme: '#b7daff',
+      loop: PLYR.loop,
+      lang: 'en',
+      screenshot: true,
+      hotkey: true,
+      preload: 'auto',
+      video: {
+          pic: urlPath + video_cover,
+          thumbnails: urlPath + PLYR.thumbnails[0].url,
+          quality: [{
+              url: url,
+              type: playerType,
+          }],
+          customType: {
+              customHls: function(video, player) {
+                  const hls = new Hls();
+                  hls.loadSource(video.src);
+                  hls.attachMedia(video);
+              },
+              customFlv: function(video, player) {
+                  const flvPlayer = flvjs.createPlayer({
+                      type: 'flv',
+                      url: video.src,
+                  });
+                  flvPlayer.attachMediaElement(video);
+                  flvPlayer.load();
+              },
+              customDash: function(video, player) {
+                  dashjs.MediaPlayer().create().initialize(video, video.src, false);
+              },
+              shakaDash: function(video, player) {
+                  var src = video.src;
+                  var playerShaka = new shaka.Player(video);
+                  playerShaka.load(src);
+              },
+
+          },
+          defaultQuality: 0,
+      },
+      subtitle: {
+          url: urlPath + video_subtitle,
+          type: 'webvtt',
+          fontSize: '25px',
+          bottom: '10%',
+          color: '#b7daff',
+      },
   });
+  convertSRT2VTT();
 }
 function file_audio(path) {
   var url = window.location.origin + path;
@@ -6496,6 +6704,78 @@ function markdown(el, data) {
   var html = marked.parse(data);
   $(el).show().html(html);
 }
+
+function convertSRT2VTT() {
+  var videoElements = document.getElementsByTagName('video');
+  /**
+   * This function converts all srt's to vtt files
+   * Source: https://github.com/redbullzuiper/SRT-Support-for-HTML5-videos
+   */
+  function convertSrtToVtt() {
+      this.id = '_' + Math.random().toString(36).substr(2, 9);
+      var tracks = document.querySelectorAll("#" + this.id + " track");
+      var subtitle = {
+          data: {
+                  track: {}
+              },
+          /**
+           * Load the file from url
+           *
+           * @param {object}    track   - DOM <track /> object
+           */
+          load: function(track) {
+              subtitle.track = track;
+              if(subtitle.isSrt(subtitle.track.src)) {
+                  var client = new XMLHttpRequest();
+                  client.open('GET', subtitle.track.src);
+                  client.onreadystatechange = function() {
+                      subtitle.convert(client.responseText).then(
+                          function (file) {
+                              subtitle.track.src = file
+                          }
+                      );
+                  }
+                  client.send();
+              }
+          },
+          /**
+           * Converts the SRT string to a VTT formatted string
+           *
+           * @param   {string}    content     - SRT string
+           * @return  {object}    promise     - Returns a promise with the generated file as the return value
+           */
+          convert: function(content) {
+              var promise = new Promise(
+                  function (resolve, reject) {
+                      content = content.replace(/(\d+:\d+:\d+)+,(\d+)/g, '$1.$2');
+                      content = "WEBVTT - Generated using SRT2VTT\r\n\r\n" + content;
+                      var blob = new Blob([content], {type: 'text/vtt'});
+                      var file = window.URL.createObjectURL(blob);
+
+                      resolve(file);
+                  }
+              );
+
+              return promise;
+          },
+          isSrt: function(filename) {
+              return filename.split('.').pop().toLowerCase() === 'srt' ? true : false;
+          },
+          isVTT: function(filename) {
+              return filename.split('.').pop().toLowerCase() === 'vtt' ? true : false;
+          }
+      }
+
+      for(var i = 0;i < tracks.length;i++) {
+          subtitle.load(tracks[i]);
+      }
+  }
+
+  for(var i = 0;i < videoElements.length;i++) {
+      videoElements[i].addEventListener('canplay', convertSrtToVtt);
+  }
+}
+
 window.onpopstate = function () {
   var path = window.location.pathname;
   render(path);
