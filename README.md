@@ -1,8 +1,8 @@
-## Special Note (temp):
+## Special Note (temp - NO OFFENCE):
 
 <img src="https://i.imgur.com/UQLeCBk.jpg" data-canonical-src="https://i.imgur.com/UQLeCBk.jpg" height="400" />
 
-_**Sri Lankan Worker at a Pakistani company, Priyantha Kumara was brutally tortured and burnt alive by a group of people of [#Pakistan](https://en.wikipedia.org/wiki/Pakistan).
+_**Sri Lankan Worker at a Pakistani company, Priyantha Kumara was brutally tortured and burnt alive by a group of people of Pakistan.
 [#JusticeForPriyantha](https://twitter.com/search?q=%23JusticeforPriyantha)**_
 
 **_No Religion is Higher than Humanity - [Abdul Sattar Edhi](https://en.wikipedia.org/wiki/Abdul_Sattar_Edhi)_**
