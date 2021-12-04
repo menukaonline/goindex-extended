@@ -1,3 +1,18 @@
+## Special Note (temp):
+
+<img src="https://i.imgur.com/UQLeCBk.jpg" data-canonical-src="https://i.imgur.com/UQLeCBk.jpg" height="400" />
+
+_**Sri Lankan Worker at a Pakistani company, Priyantha Kumara was brutally tortured and burned alive by a group of people of [#Pakistan](https://en.wikipedia.org/wiki/Pakistan).
+[#JusticeForPriyantha](https://twitter.com/search?q=%23JusticeforPriyantha)**_
+
+**_No Religion is Higher than Humanity - [Abdul Sattar Edhi](https://en.wikipedia.org/wiki/Abdul_Sattar_Edhi)_**
+
+**_[#JusticeForPriyantha](https://twitter.com/search?q=%23JusticeforPriyantha)_**
+
+_Image credit goes to **[@project_de_marco](https://www.instagram.com/project_de_marco/)**_
+
+---
+
 ![Preview](https://raw.githubusercontent.com/cheems/goindex-extended/master/images/preview.png)
 # GoIndex Extended - Google Drive Index
 
