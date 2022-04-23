@@ -1,11 +1,11 @@
 const authConfig = {
-  "siteName": "GoIndex Extended", // WebSite Name
+  "siteName": "Upload Data", // WebSite Name
   "siteIcon": "https://raw.githubusercontent.com/cheems/goindex-extended/master/images/favicon-x.png", //or fevicon-x-light.png
   "version": "1.4.1", // VersionControl, do not modify manually
   // client_id & client_secret - PLEASE USE YOUR OWN!
-  "client_id": "", // Client ID
-  "client_secret": "", // Client Secret
-  "refresh_token": "", // Refresh Token
+  "client_id": "202264815644.apps.googleusercontent.com", // Client ID
+  "client_secret": "X4Z3ca8xfWDb1Voo-F9a7ZxJ", // Client Secret
+  "refresh_token": "1//06BtrbgOGaAQmCgYIARAAGAYSNwF-L9IrDSN9Jmu8CT4F2haY_pQV-1eQt7Ap0jtwnUvhgmHgLLYMUXzYx71U4LlsP63EhvDuakA", // Refresh Token
   "folder_list_url": "", // Folder Id List(Only if you have any folders in roots) - Sample: https://cdn.jsdelivr.net/gh/cheems/goindex-extended@master/sample-files/sample-folder-id-list.txt
   // Crypt Secret must be 32 characters long - Sample: "1234567890123456abcdefghIJKLMN!*" | don't use these characters (\,/,",') 
   "crypt_secret": "", // Crypt Secret (Required)* This is used to encrypt file ids
@@ -24,7 +24,7 @@ const authConfig = {
   // =================== ROOTS ===================
   "roots": [
     {
-      id: "root", //you can use folderid other than root but then search wont work
+      id: "0ACPP_Tfc88tEUk9PVA", //you can use folderid other than root but then search wont work
       name: "Personal Drive",
 
       /* provide 'username':'password' combinations seperated by commas. 
@@ -53,11 +53,11 @@ const authConfig = {
   ],
   // =================== END OF ROOTS ===================  <-- DON'T REMOVE THIS LINE
   //Set this to true if you need to let users download files which Google Drive has flagged as a virus
-  "enable_virus_infected_file_down": false,
+  "enable_virus_infected_file_down": true,
   //Set this to true if you want to sort the list by modified time
-  "sort_by_modified_time": false,
+  "sort_by_modified_time": true,
   //Set this to true if you need to let users download deleted files from the current drive
-  "include_trashed_files": false, // Then files will be visible at where they were before moving to the trash bin
+  "include_trashed_files": true, // Then files will be visible at where they were before moving to the trash bin
   //Set this to true if you want to force directories to load. This may cause you to exceed API rate limits
   "force_list_to_load": true,
   /**
@@ -89,7 +89,7 @@ const authConfig = {
  */
 const uiConfig = {
   "theme": "material", // DO NOT set it to classic
-  "dark_mode": true, // true or false
+  "dark_mode": false, // true or false
   "title_include_drive_name": false, // Set this to true if you need to add drive name to the page title which will be displayed in browser tab name area (ex: Goindex Extented - Disk 01)
   "title_include_path": "", // full-path | current-directory | or leave it empty
   // set title_include_path to "full-path" if you want to add full path of the current directory to title (ex: Goindex Extented - /Multimedia/images/) or (ex: Goindex Extented - Disk 01 - /Multimedia/images)
