@@ -107,6 +107,27 @@ const uiConfig = {
 };
 
 /**
+ * Player Configuration
+ */
+ const playerConfig = {
+  "autoplay": true,
+  "loop": true,
+  "player_dp": "|m3u8|flv|",
+  "thumbnails": [
+    {
+      name: "dplayer",
+      url: "Thumbnail/dplayer.jpg"
+    },
+    {
+      name: "plyr",
+      url: "Thumbnail/plyr.vtt"
+    }
+  ],
+  "video_cover": "${fileName}.${ext}",
+  "video_subtitle": "${fileName}.${ext}",
+};
+
+/**
  * Google Workspace Apps Export config
  *
  * Set preferred extensions that workspace files need to be downloaded.
@@ -196,6 +217,7 @@ function html(current_drive_order = 0, model = {}) {
     window.MODEL = JSON.parse('${JSON.stringify(model)}');
     window.current_drive_order = ${current_drive_order};
     window.UI = JSON.parse('${JSON.stringify(uiConfig)}');
+    window.PLYR = JSON.parse('${JSON.stringify(playerConfig)}');
   </script>
   <script src="//cdn.jsdelivr.net/gh/cheems/goindex-extended@4d1427558a21603e7c7e7dc986a154a9560f4835/app_beta.js"></script>
 </head>
